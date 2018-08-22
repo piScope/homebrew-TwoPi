@@ -25,6 +25,7 @@ class Twopi < Formula
     system "bin/twopi install-noclean mfems"
     system "bin/twopi install-noclean mfemp"
     system "bin/twopi install glvis"
+    system "bin/twopi install PyMFEM"
     system "bin/twopi install piScope"
     system "bin/twopi install PetraM_Base"
     system "bin/twopi install PetraM_RF"
