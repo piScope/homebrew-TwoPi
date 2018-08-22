@@ -6,7 +6,7 @@ class Twopi < Formula
   # depends_on "cmake" => :build
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
+    ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     ENV.prepend_path "PATH", "/usr/local/bin"
     ENV["TwoPiRoot"]="#{prefix}"
