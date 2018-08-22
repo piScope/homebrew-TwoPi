@@ -14,9 +14,7 @@ class Twopi < Formula
     ENV["PetraM"]="#{prefix}"    
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
-    ENV.delete('CFLAGS')
-    ENV.delete('CXXFLAGS')
-    ENV["CC"]="/usr/bin/clang"
+    ENV.delete('CC')
     system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     #system "bin/twopi install metis"
     #system "bin/twopi install parmetis"
