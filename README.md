@@ -4,6 +4,8 @@ This formula installs followig libraris.
    PetraM (Base, RF, Geom, Driver, MUMPS)
    
 ### Steps after fresh start of HomeBrew
+
+```
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    
    brew install open-mpi scalapack boost wget numpy scipy coreutils libomp
@@ -13,8 +15,10 @@ This formula installs followig libraris.
 
    brew tap piScope/twopi
    brew install -v --env=std piScope/twopi/twopi
+```   
    
-   
-### memo for bottling    
+### memo for bottling
+```
    brew install -v --env=std piScope/twopi/twopi --build-bottle
    brew bottle piScope/twopi/twopi
+```
