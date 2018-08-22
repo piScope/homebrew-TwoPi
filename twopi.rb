@@ -11,6 +11,7 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "/usr/local/bin"
     ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
     ENV["TwoPiRoot"]="#{prefix}"
+    ENV["PetraM"]="#{prefix}"    
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
     #system "bin/twopi install metis"
