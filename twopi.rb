@@ -12,6 +12,7 @@ class Twopi < Formula
     system "export TwoPiDevice=brew"
     system "export TwoPiGit=git@github.com:piScope"
     system "bin/twopi clone mfem"
+    system "bin/twopi build mfems"    
     # system "cmake", ".", *std_cmake_args
     #system "make", "install" # if this fails, try separate make/make install steps
   end
