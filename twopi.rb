@@ -8,6 +8,7 @@ class Twopi < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
+    ENV.prepend_path PATH, "/usr/local/bin"
     system "export TwoPiRoot=#{prefix}"
     system "export TwoPiDevice=brew"
     system "export TwoPiGit=git@github.com:piScope"
