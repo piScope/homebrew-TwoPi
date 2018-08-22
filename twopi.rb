@@ -8,11 +8,10 @@ class Twopi < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "echo $PWD"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "export TwoPiRoot=#{prefix}"
+    system "export TwoPiDevice=brew"
+    system "export TwoPiGit=git@github.com:piScope"
+    system "bin/twopi clone mfem"
     # system "cmake", ".", *std_cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
