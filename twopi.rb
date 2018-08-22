@@ -13,7 +13,7 @@ class Twopi < Formula
     system "export TwoPiGit=git@github.com:piScope"
     system "bin/twopi clone mfem"
     # system "cmake", ".", *std_cmake_args
-    system "make", "install" # if this fails, try separate make/make install steps
+    #system "make", "install" # if this fails, try separate make/make install steps
   end
 
   test do
