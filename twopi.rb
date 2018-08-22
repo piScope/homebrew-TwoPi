@@ -1,8 +1,8 @@
 class Twopi < Formula
   desc ""
   homepage ""
-  url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi_image_0.1.tar.gz"
-  sha256 "53a95e2565b3a500026c67e9c370f378270c72fd4d578a50e8941283988d1f07"
+  url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi_image_0.11.tar.gz"
+  sha256 "5bed03382cd66bcedf342027440eee6025eff29adab165b4ece077937e25e8aa"
   # depends_on "cmake" => :build
 
   def install
