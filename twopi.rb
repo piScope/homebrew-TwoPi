@@ -16,6 +16,7 @@ class Twopi < Formula
     ENV["TwoPiGit"]="git@github.com:piScope"
     ENV.delete('CFLAGS')
     ENV.delete('CXXFLAGS')
+    ENV["CC"]="/usr/bin/clang"
     system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     #system "bin/twopi install metis"
     #system "bin/twopi install parmetis"
