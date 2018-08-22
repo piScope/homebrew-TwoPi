@@ -9,10 +9,9 @@ class Twopi < Formula
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
     ENV.prepend_path "PATH", "/usr/local/bin"
-    system "export TwoPiRoot=#{prefix}"
-    system "export TwoPiDevice=brew"
-    system "export TwoPiGit=git@github.com:piScope"
-    system "export PATH=/usr/local/bin:$PATH"
+    ENV["TwoPiRoot"]="#{prefix}"
+    ENV["TwoPiDevice"]="brew"
+    ENV["TwoPiGit"]="git@github.com:piScope"
     system "bin/twopi clone mfem"
     system "bin/twopi build mfems"    
     # system "cmake", ".", *std_cmake_args
