@@ -11,6 +11,7 @@ class Twopi < Formula
     system "export TwoPiRoot=#{prefix}"
     system "export TwoPiDevice=brew"
     system "export TwoPiGit=git@github.com:piScope"
+    system "export PATH=/usr/local/bin:$PATH"
     system "bin/twopi clone mfem"
     system "bin/twopi build mfems"    
     # system "cmake", ".", *std_cmake_args
