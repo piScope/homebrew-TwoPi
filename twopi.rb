@@ -12,8 +12,9 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
-    system "bin/twopi clone mfem"
-    system "bin/twopi build mfems"    
+    system "bin/twopi install piScope"
+    #system "bin/twopi clone mfem"
+    #system "bin/twopi build mfems"    
     # system "cmake", ".", *std_cmake_args
     #system "make", "install" # if this fails, try separate make/make install steps
   end
