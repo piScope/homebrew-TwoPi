@@ -12,11 +12,18 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
+    system "bin/twopi install metis"
+    system "bin/twopi install parmetis"        
+    system "bin/twopi install-noclean MUMPS"
+    system "bin/twopi install-noclean mfems"
+    system "bin/twopi install-noclean mfemp"
+    system "bin/twopi install glvis"
     system "bin/twopi install piScope"
-    #system "bin/twopi clone mfem"
-    #system "bin/twopi build mfems"    
-    # system "cmake", ".", *std_cmake_args
-    #system "make", "install" # if this fails, try separate make/make install steps
+    system "bin/twopi install PetraM_Base"
+    system "bin/twopi install PetraM_RF"
+    system "bin/twopi install PetraM_Geom"
+    system "bin/twopi install PetraM_Driver"
+    system "bin/twopi install PetraM_MUMPS"                        
   end
 
   test do
