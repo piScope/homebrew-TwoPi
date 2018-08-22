@@ -15,6 +15,7 @@ class Twopi < Formula
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
     ENV["CC"]="/usr/bin/clang"
+    ENV["MPICC"]="/usr/bin/clang"
     system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     system "bin/twopi install metis"
     system "bin/twopi install parmetis"
