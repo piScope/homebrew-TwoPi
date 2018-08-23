@@ -12,9 +12,17 @@ This formula installs followig libraris.
    brew install gmsh --with-opencascade --with fltk
    pip install meshio==1.8.17 voropy==0.5.0
    pip install wxPython==4.0.3 matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw h5py mpi4py
+```
 
+Then, on highSierra, the followig commad will do Bottle (binary) install)  
+```
    brew tap piScope/twopi
-   brew install -v --env=std piScope/twopi/twopi
+   brew install piScope/twopi/twopi
+   brew link --overwrite twopi
+   
+   # please set PetraM envirometal variable to point the install location.
+   export PetraM=/usr/local
+   piscope -d
 ```   
    
 ### memo for bottling
