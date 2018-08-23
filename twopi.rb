@@ -1,12 +1,12 @@
 class Twopi < Formula
   desc ""
   homepage ""
-  url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi_image_0.11"
+  url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi_image_0.11.tar.gz"
   sha256 "5bed03382cd66bcedf342027440eee6025eff29adab165b4ece077937e25e8aa"
   # depends_on "cmake" => :build
   
   bottle do
-    root_url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi--0.11.high_sierra.bottle.tar.gz.tar.gz"
+    root_url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image"
     sha256 "731697fcf179994641dec11710cb283507e4519000cc95fc0bfa97181b0cd57e" => :high_sierra
   end
 
