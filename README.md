@@ -11,7 +11,7 @@ This formula installs followig libraris.
    brew install open-mpi scalapack boost wget numpy scipy coreutils libomp
    brew install gmsh --with-opencascade --with fltk
    pip install meshio==1.8.17 voropy==0.5.0
-   pip install wxPython==4.0.3 matplotlib Pillow hgapil PyOpenGL netCDF4 PyPDF2l pdfrw h5py mpi4py
+   pip install wxPython==4.0.3 matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw h5py mpi4py
 
    brew tap piScope/twopi
    brew install -v --env=std piScope/twopi/twopi
