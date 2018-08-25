@@ -35,7 +35,6 @@ class Twopi < Formula
     system "bin/twopi install PetraM_Base"
     system "bin/twopi install PetraM_RF"
     system "bin/twopi install PetraM_Geom"
-    system "bin/twopi install PetraM_Driver"
     system "bin/twopi install PetraM_MUMPS"                        
   end
   
