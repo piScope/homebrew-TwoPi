@@ -29,4 +29,6 @@ Then, on highSierra, the followig commad will do Bottle (binary) install)
 ```
    brew install -v --env=std piScope/twopi/twopi --build-bottle
    brew bottle piScope/twopi/twopi
+   
+   Then update formula
 ```
