@@ -7,7 +7,7 @@ class Twopi < Formula
   
   bottle do
     root_url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image"
-    sha256 "731697fcf179994641dec11710cb283507e4519000cc95fc0bfa97181b0cd57e" => :high_sierra
+    sha256 "9b698431002debd604864dd43963b9091c0080df106bfb4473a9fca7fc75775a" => :high_sierra
   end
 
   def install
