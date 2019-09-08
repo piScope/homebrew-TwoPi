@@ -1,53 +1,25 @@
+# Documentation: https://docs.brew.sh/Formula-Cookbook
+#                https://rubydoc.brew.sh/Formula
+# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Twopi < Formula
-  desc ""
-  homepage ""
-  url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image/twopi_image_0.11.tar.gz"
-  sha256 "5bed03382cd66bcedf342027440eee6025eff29adab165b4ece077937e25e8aa"
+  desc "Package installer to setup Petra-M"
+  homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
+  url "https://github.com/piScope/TwoPi/archive/0.2.tar.gz"
+  sha256 "93298f2d698d51ec55b660944f0c3609e7141ea92cf051707aca7a7b8e3ad7f1"
+
   # depends_on "cmake" => :build
-  
-  bottle do
-    root_url "https://www-internal.psfc.mit.edu/~shiraiwa/petram_image"
-    sha256 "975cad01cab62bb146e3e68e15c2efbfa25e18f2a3149dfd243d698912844213" => :high_sierra
-  end
 
   def install
-    ENV.deparallelize  # if your formula fails when building in parallel
+    # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    ENV.prepend_path "PATH", "/usr/local/bin"
-    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
-    ENV["TwoPiRoot"]="#{prefix}"
-    ENV["PetraM"]="#{prefix}"    
-    ENV["TwoPiDevice"]="brew"
-    ENV["TwoPiGit"]="git@github.com:piScope"
-    #ENV["CC"]="/usr/bin/clang"
-    #ENV["MPICC"]="/usr/bin/clang"
-    #ENV["MPICXX"]="/usr/bin/clang"
-    system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    system "bin/twopi install metis"
-    system "bin/twopi install parmetis"
-    system "bin/twopi install hypre"            
-    system "bin/twopi install-noclean MUMPS"
-    system "bin/twopi install-noclean mfems"
-    system "bin/twopi install-noclean mfemp"
-    system "bin/twopi install glvis"
-    system "bin/twopi install PyMFEM"
-    system "bin/twopi install piScope"
-    system "bin/twopi install PetraM_Base"
-    system "bin/twopi install PetraM_RF"
-    system "bin/twopi install PetraM_Geom"
-    system "bin/twopi install PetraM_MUMPS"                        
   end
-  
-  def pour_bottle?
-    true
-  end
-  
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #
     # This test will fail and we won't accept that! For Homebrew/homebrew-core
     # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test twopi_image`. Options passed
+    # software. Run the test with `brew test TwoPi`. Options passed
     # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
     #
     # The installed folder is not in the path, so use the entire path to any
