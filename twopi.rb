@@ -4,17 +4,18 @@
 class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  url "https://github.com/piScope/TwoPi/archive/0.22.tar.gz"
-  sha256 "695117ea7a528de60bc64b0cc4a75bf73271efa67c79e6be79ec18a0862e75fd"
-
+  url "https://github.com/piScope/TwoPi/archive/0.24.tar.gz"
+  sha256 "7177409eab365d9b339c52eb60f8e8874195954ce012d9903a5724aa4ef6c0cf"
   # depends_on "cmake" => :build
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    
-    # Remove unrecognized options if warned by configure
+
+    # w/o this, it does't find wget, llvm-clang (for OMP)
     ENV.prepend_path "PATH", "/usr/local/bin"
+    ENV.prepend_path "PATH", "/usr/local/opt/llvm/bin"
+
     #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
     ENV["TwoPiRoot"]="#{prefix}"
     #ENV["PetraM"]="#{prefix}"    
