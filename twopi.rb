@@ -12,7 +12,7 @@ class Twopi < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    make install
+    system "make install"
   end
 
   test do
