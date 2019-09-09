@@ -12,7 +12,7 @@ class Twopi < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "make install prefix=#{prefix}" 
+    system "make install PREFIX=#{prefix}" 
   end
 
   test do
