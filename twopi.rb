@@ -12,9 +12,9 @@ class Twopi < Formula
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "make install PREFIX=#{prefix}"
+    
     # Remove unrecognized options if warned by configure
-    #ENV.prepend_path "PATH", "/usr/local/bin"
+    ENV.prepend_path "PATH", "/usr/local/bin"
     #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
     ENV["TwoPiRoot"]="#{prefix}"
     #ENV["PetraM"]="#{prefix}"    
