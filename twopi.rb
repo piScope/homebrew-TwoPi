@@ -4,14 +4,15 @@
 class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  url "https://github.com/piScope/TwoPi/archive/0.2.tar.gz"
-  sha256 "93298f2d698d51ec55b660944f0c3609e7141ea92cf051707aca7a7b8e3ad7f1"
+  url "https://github.com/piScope/TwoPi/archive/0.21.tar.gz"
+  sha256 "08dddad57207455939b47bd1b8fa8835a0fcc4cb0633a757050c75e43a08b308"
 
   # depends_on "cmake" => :build
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
+    make install
   end
 
   test do
