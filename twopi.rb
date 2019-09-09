@@ -10,9 +10,23 @@ class Twopi < Formula
   # depends_on "cmake" => :build
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
+    ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "make install PREFIX=#{prefix}" 
+    system "make install PREFIX=#{prefix}"
+    # Remove unrecognized options if warned by configure
+    #ENV.prepend_path "PATH", "/usr/local/bin"
+    #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
+    ENV["TwoPiRoot"]="#{prefix}"
+    #ENV["PetraM"]="#{prefix}"    
+    ENV["TwoPiDevice"]="brew"
+    ENV["TwoPiGit"]="git@github.com:piScope"
+    #ENV["CC"]="/usr/bin/clang"
+    #ENV["MPICC"]="/usr/bin/clang"
+    #ENV["MPICXX"]="/usr/bin/clang"
+    #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+    system "bin/twopi install metis"
+    system "bin/twopi install parmetis"
+    system "bin/twopi install hypre"                
   end
 
   test do
