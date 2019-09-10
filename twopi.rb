@@ -12,9 +12,10 @@ class Twopi < Formula
     ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
 
-    # w/o this, it does't find wget, llvm-clang (for OMP)
-    ENV.prepend_path "PATH", "/usr/local/bin"
-    ENV.prepend_path "PATH", "/usr/local/opt/llvm/bin"
+    # w/o this, it does't find wget, llvm-clang (for OMP), and python
+    ENV.prepend_path "PATH", "#{prefix}/bin"
+    ENV.prepend_path "PATH", "#{prefix}/opt/llvm/bin"
+    ENV.prepend_path "PATH", "#{prefix}/opt/python/bin"    
 
     #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
     ENV["TwoPiRoot"]="#{prefix}"
