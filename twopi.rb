@@ -25,9 +25,10 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    system "bin/twopi install metis"
-    system "bin/twopi install parmetis"
-    system "bin/twopi install hypre"                
+    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh"
+    #system "bin/twopi install metis"
+    #Qsystem "bin/twopi install parmetis"
+    #ystem "bin/twopi install hypre"                
   end
 
   test do
