@@ -15,7 +15,7 @@ class Twopi < Formula
     # w/o this, it does't find wget, llvm-clang (for OMP), and python
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/bin"    
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
 
     #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
     ENV["TwoPiRoot"]="#{prefix}"
