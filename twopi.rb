@@ -37,6 +37,7 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
 
     # need this to install packages
+    system "mkdir -p #{prefix}/lib/python3.7/site-packages"
     ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
     
     ENV["TwoPiRoot"]="#{prefix}"
