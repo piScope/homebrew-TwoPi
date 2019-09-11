@@ -10,6 +10,8 @@ class Twopi < Formula
   sha256 "312d286db1292cc28f3a2fb09423f16c6b68b0b3880627d2a788ebd440d256fc"
   # depends_on "cmake" => :build
 
+  
+  depends_on "zlib"
   depends_on "python"
 
   resource "Pillow" do
@@ -110,6 +112,9 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+    export LDFLAGS="-L/usr/local/opt/zlib/lib"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include"
+    
     venv = virtualenv_create(libexec)
     venv.pip_install resources
     
