@@ -8,11 +8,18 @@ class Twopi < Formula
   sha256 "312d286db1292cc28f3a2fb09423f16c6b68b0b3880627d2a788ebd440d256fc"
   # depends_on "cmake" => :build
 
+  depends_on "python"
+  
+  resource six do
+     url " https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz "
+     sha256 " d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73 "
+  end
+  
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
 
-    # w/o this, it does't find wget, llvm-clang (for OMP), and python
+    # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
@@ -26,7 +33,8 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh"
+    virtualenv_install_with_resources
+    #system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh"
     #system "bin/twopi install metis"
     #Qsystem "bin/twopi install parmetis"
     #ystem "bin/twopi install hypre"                
