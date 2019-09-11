@@ -10,13 +10,21 @@ class Twopi < Formula
   sha256 "312d286db1292cc28f3a2fb09423f16c6b68b0b3880627d2a788ebd440d256fc"
   # depends_on "cmake" => :build
 
-  
+  depends_on "wget"
   depends_on "zlib"
+  depends_on "coreutils"
+  depends_on "llvm"
+  depends_on "libomp"
+  depends_on "gmsh"        
+  depends_on "open-mpi"
+  depends_on "scalapack"    
   depends_on "python"
+  depends_on "numpy"
+  depends_on "scipy"
   depends_on "wxpython"
+  depends_on "netcdf"    
   depends_on "hdf5"  
   
-
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/51/fe/18125dc680720e4c3086dd3f5f95d80057c41ab98326877fc7d3ff6d0ee5/Pillow-6.1.0.tar.gz"
     sha256 "0804f77cb1e9b6dbd37601cee11283bba39a8d44b9ddb053400c58e0c0d7d9de"
