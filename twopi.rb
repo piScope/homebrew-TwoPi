@@ -2,6 +2,8 @@
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Twopi < Formula
+  include Language::Python::Virtualenv
+  
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   url "https://github.com/piScope/TwoPi/archive/0.25.tar.gz"
