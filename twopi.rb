@@ -112,8 +112,8 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    export LDFLAGS="-L/usr/local/opt/zlib/lib"
-    export CPPFLAGS="-I/usr/local/opt/zlib/include"
+    ENV["LDFLAGS"]="-L/usr/local/opt/zlib/lib"
+    ENV["CPPFLAGS="]="-I/usr/local/opt/zlib/include"
     
     venv = virtualenv_create(libexec)
     venv.pip_install resources
