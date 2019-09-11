@@ -35,7 +35,9 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources
+    
     #system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh"
     #system "bin/twopi install metis"
     #Qsystem "bin/twopi install parmetis"
