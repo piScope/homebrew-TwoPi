@@ -14,6 +14,8 @@ class Twopi < Formula
   depends_on "zlib"
   depends_on "python"
   depends_on "wxpython"
+  depends_on "hdf5"  
+  
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/51/fe/18125dc680720e4c3086dd3f5f95d80057c41ab98326877fc7d3ff6d0ee5/Pillow-6.1.0.tar.gz"
