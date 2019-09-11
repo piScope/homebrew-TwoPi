@@ -13,6 +13,7 @@ class Twopi < Formula
   
   depends_on "zlib"
   depends_on "python"
+  depends_on "wxpython"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/51/fe/18125dc680720e4c3086dd3f5f95d80057c41ab98326877fc7d3ff6d0ee5/Pillow-6.1.0.tar.gz"
@@ -24,16 +25,6 @@ class Twopi < Formula
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
   
-  resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/b5/f4/9c7cc726ece2498b6c8b62d3262aa43f59039b953fe23c9964ac5e18d40b/pathlib2-2.3.4.tar.gz"
-    sha256 "446014523bb9be5c28128c4d2a10ad6bb60769e78bd85658fe44a450674e0ef8"
-end
-
-  resource "wxPython" do
-    url "https://files.pythonhosted.org/packages/9a/a1/9c081e04798eb134b63def3db121a6e4436e1d84e76692503deef8e75423/wxPython-4.0.6.tar.gz"
-    sha256 "35cc8ae9dd5246e2c9861bb796026bbcb9fb083e4d49650f776622171ecdab37"
-  end  
-
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
