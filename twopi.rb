@@ -48,7 +48,7 @@ class Twopi < Formula
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
     
-    system "make install"
+    system "make install PREFIX=#{prefix}"
     #system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod"
   end
 
