@@ -36,20 +36,20 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
 
-    #ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"
+    # need this to install packages
+    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
+    
     ENV["TwoPiRoot"]="#{prefix}"
-    #ENV["PetraM"]="#{prefix}"    
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
+    
+    #ENV["PetraM"]="#{prefix}"        
     #ENV["CC"]="/usr/bin/clang"
     #ENV["MPICC"]="/usr/bin/clang"
     #ENV["MPICXX"]="/usr/bin/clang"
-    #system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     
-    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod"
-    #system "bin/twopi install metis"
-    #Qsystem "bin/twopi install parmetis"
-    #ystem "bin/twopi install hypre"                
+    system "make install"
+    #system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod"
   end
 
   test do

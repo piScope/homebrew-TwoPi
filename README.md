@@ -5,13 +5,43 @@ This formula installs followig libraris.
    
 ### Steps after fresh start of HomeBrew
 
+1) Install XCode CommandLineTool
 ```
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+     > xcode-select --install
+```     
+   You may also need to update XCode from App Store, which takes several hours
    
-   brew install open-mpi scalapack boost wget numpy scipy coreutils libomp
-   brew install gmsh --with-opencascade --with fltk
-   pip install meshio==1.8.17 voropy==0.5.0
-   pip install wxPython==4.0.3 matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw h5py mpi4py
+2) Install HomeBrew
+```
+     > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+"```
+
+3) install libraries
+```
+   > brew install open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
+```
+
+4) install Python modules
+```
+   > pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future
+```
+
+5) install mpi4py
+```
+   > CC=mpicc CXX=mpicxx pip3 install mpi4py
+```
+
+4)  tap to the custom formula
+```
+    > brew tap piScope/twopi ssh://git@github.mit.edu/piScope/homebrew-TwoPi
+```    
+5)  in case, update formula
+```
+    > brew update
+```    
+6)  install everything from source
+```
+    > brew install -v -s piscope/twopi/twopi
 ```
 
 Then, on highSierra, the followig commad will do Bottle (binary) install)  
