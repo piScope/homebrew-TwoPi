@@ -6,10 +6,8 @@ class Twopi < Formula
   
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  url "https://github.com/piScope/TwoPi/archive/2.6.1.tar.gz"
-  sha256 "2700ea59a6cfa684fd39c06cc0ca4663c8f1eff24f6b7ee87b2df497f3e931ac"
-  #url "https://github.com/piScope/TwoPi/archive/0.26.tar.gz"
-  #sha256 "986ee8fbaaf7bdd7639248466b56dd08ca28765ae292d3f53a39b80108cf9701"
+  url "https://github.com/piScope/TwoPi/archive/0.3.tar.gz"
+  sha256 "4bcc7fffce85f00d943e5943eaeaa117989b8d62b44a052e47ae171f46e16300"
 
   # depends_on "cmake" => :build
 
@@ -53,7 +51,7 @@ class Twopi < Formula
     
     system "make install PREFIX=#{prefix}"
     #system "bin/twopi install MUMPS"
-    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod"
+    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir ${prefix}/log"
   end
 
   test do
