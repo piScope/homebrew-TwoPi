@@ -44,17 +44,16 @@ class Twopi < Formula
     ENV["TwoPiDevice"]="brew"
     ENV["TwoPiGit"]="git@github.com:piScope"
     
-    #ENV["PetraM"]="#{prefix}"        
-    #ENV["CC"]="/usr/bin/clang"
-    #ENV["MPICC"]="/usr/bin/clang"
-    #ENV["MPICXX"]="/usr/bin/clang"
     
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
     system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
+
+    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+
+    # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
-    #system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
   end
   
   def caveats; <<~EOS
