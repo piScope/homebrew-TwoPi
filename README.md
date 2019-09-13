@@ -16,6 +16,17 @@ This formula installs followig libraris.
      > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+2-1) On Mojave, compiler header file is missing, and you may get this error without installing SDK
+```
+../include/space.h:12:10: fatal error: 'stdio.h' file not found
+```
+Try this
+```
+open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+```
+Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-include-header-files-fatal-error-stdlib-h-file-not-found/4523
+
+
 3) install libraries
 ```
    > brew install open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
