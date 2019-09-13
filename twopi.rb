@@ -6,8 +6,8 @@ class Twopi < Formula
   
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  url "https://github.com/piScope/TwoPi/archive/0.3.1.tar.gz"
-  sha256 "e33343003819207b09bccc7d6d6828fb3715191800d932081a6dc50f85421b1e"  
+  url "https://github.com/piScope/TwoPi/archive/0.3.2.tar.gz"
+  sha256 "63f0f4a9c118c007964b33b584a471cd86be3fe0480fefb2bbbddac539dbff2d"
 
   # depends_on "cmake" => :build
 
@@ -55,7 +55,14 @@ class Twopi < Formula
     #system "bin/twopi install MUMPS"
     system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
   end
-
+  
+  def caveats; <<~EOS
+    To use Petra-M please source the  enviroment first
+      > source $(twopi-confg --env)
+      > piscope 
+  EOS
+  end
+  
   test do
     # `test do` will create, run in and delete a temporary directory.
     #
