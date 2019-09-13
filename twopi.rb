@@ -6,8 +6,8 @@ class Twopi < Formula
   
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  url "https://github.com/piScope/TwoPi/archive/0.3.tar.gz"
-  sha256 "4bcc7fffce85f00d943e5943eaeaa117989b8d62b44a052e47ae171f46e16300"
+  url "https://github.com/piScope/TwoPi/archive/0.3.1.tar.gz"
+  sha256 "e33343003819207b09bccc7d6d6828fb3715191800d932081a6dc50f85421b1e"  
 
   # depends_on "cmake" => :build
 
@@ -50,6 +50,8 @@ class Twopi < Formula
     #ENV["MPICXX"]="/usr/bin/clang"
     
     system "make install PREFIX=#{prefix}"
+    system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
+    system "cp   scripts/twopi-config      #{prefix}/bin/twopi-config"        
     #system "bin/twopi install MUMPS"
     system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
   end
