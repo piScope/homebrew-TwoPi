@@ -3,8 +3,6 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Twopi < Formula
   #include Language::Python::Virtualenv
-  option "--with-dev-repo", "Use development branch"
-  
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
@@ -41,7 +39,7 @@ class Twopi < Formula
     ENV["TwoPiDevice"]="brew"
 
     # we need to set PYTHONPATH, make site-package dir and source repository
-    if build.with? "dev-repo"
+    if build.devel?
        ENV["TwoPiGit"]="git@github.com:piScope"
        system "mkdir -p #{prefix}/lib/python3.7/site-packages"
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
@@ -57,7 +55,7 @@ class Twopi < Formula
     system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
     system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
 
-    if build.with? "dev-repo"
+    if build.devel?
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
