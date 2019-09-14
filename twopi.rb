@@ -6,15 +6,14 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
-  sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
+  url "https://github.com/piScope/TwoPi/archive/0.3.4.tar.gz"
+  sha256 "3e41d359ed3215165876e5a57167651047e56511b2ea57181bc9bf969ad62db8"
 
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
-    sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
+    url "https://github.com/piScope/TwoPi/archive/0.3.4.tar.gz"
+    sha256 "3e41d359ed3215165876e5a57167651047e56511b2ea57181bc9bf969ad62db8"
   end 
-  # depends_on "cmake" => :build
 
   depends_on "wget"
   depends_on "zlib"
