@@ -5,9 +5,15 @@ class Twopi < Formula
   #include Language::Python::Virtualenv
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
+  
   url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
   sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
 
+  devel do
+    ## we could specify different tar-ball 
+    ## url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
+    ## sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
+  end 
   # depends_on "cmake" => :build
 
   depends_on "wget"
