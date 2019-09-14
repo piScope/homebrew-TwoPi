@@ -10,10 +10,9 @@ class Twopi < Formula
   sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
 
   devel do
-    ## we could specify different tar-ball
-    opoo "Development branch was chosen. This option is valid only if you have an access"
-    ## url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
-    ## sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
+    ## For now it is the same files
+    url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
+    sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
   end 
   # depends_on "cmake" => :build
 
@@ -47,12 +46,13 @@ class Twopi < Formula
 
     # we need to set PYTHONPATH, make site-package dir and source repository
     if build.devel?
+       opoo "Development branch was chosen. This option is valid only if you have an access"    
+
        ENV["TwoPiGit"]="git@github.com:piScope"
        system "mkdir -p #{prefix}/lib/python3.7/site-packages"
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
     else
        ENV["TwoPiGit"]="git@github.com:piScope"
-       # need this to install packages            
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
        system "mkdir -p #{prefix}/lib/python2.7/site-packages"
     end
