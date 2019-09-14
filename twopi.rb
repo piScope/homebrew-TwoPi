@@ -10,9 +10,10 @@ class Twopi < Formula
   sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
 
   devel do
-    ## we could specify different tar-ball 
-    # url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
-    # sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
+    ## we could specify different tar-ball
+    opoo "Development branch was chosen. This option is valid only if you have an access"
+    ## url "https://github.com/piScope/TwoPi/archive/0.3.3.tar.gz"
+    ## sha256 "2e0c09b3428d3f8ea7babb958d6dfedc4bc5ee348c7dddab070109e277f8cd3a"  
   end 
   # depends_on "cmake" => :build
 

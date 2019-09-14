@@ -54,7 +54,7 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 ```
     > brew install -v -s piscope/twopi/twopi
     or
-    > brew install -v -s piscope/twopi/twopi --with-dev-repo (require our internal repository for development)
+    > brew install -v -s piscope/twopi/twopi --devel (require our internal repository for development)
 ```
 
 ### Blow is under construction
