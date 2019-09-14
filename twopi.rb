@@ -50,7 +50,7 @@ class Twopi < Formula
     system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
     system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
 
-    system "bin/twopi install modules --PyMFEM-branch MFEM4_dev --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
 
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
