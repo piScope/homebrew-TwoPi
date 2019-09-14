@@ -3,7 +3,7 @@ This formula installs followig libraris.
    MFEM, Hypre, Metis, Parmetis, MUMPS
    PetraM (Base, RF, Geom, Driver, MUMPS)
    
-### Steps after fresh start of HomeBrew
+### Steps to start from fresh install of HomeBrew
 
 1) Install XCode CommandLineTool
 ```
@@ -44,6 +44,8 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 
 4)  tap to the custom formula
 ```
+    > brew tap piScope/twopi
+    or
     > brew tap piScope/twopi ssh://git@github.mit.edu/piScope/homebrew-TwoPi
 ```    
 5)  in case, update formula

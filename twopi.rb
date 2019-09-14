@@ -46,7 +46,7 @@ class Twopi < Formula
 
     # we need to set PYTHONPATH, make site-package dir and source repository
     if build.devel?
-       ohai "Development branch was chosen. This option is valid only if you have an access"    
+       ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
        ENV["TwoPiGit"]="git@github.com:piScope"
        system "mkdir -p #{prefix}/lib/python3.7/site-packages"
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
