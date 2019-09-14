@@ -1,4 +1,5 @@
 ##  Formula to install the TwoPi (piScope/Petra-M) packages.
+
 This formula installs followig libraris.
    MFEM, Hypre, Metis, Parmetis, MUMPS
    PetraM (Base, RF, Geom, Driver, MUMPS)
@@ -52,15 +53,15 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 ```
     > brew update
 ```    
-6)  install everything from source
+6)  install everything from source (currenlty we don't provide a bottle)
 ```
     > brew install -v -s piscope/twopi/twopi
     or
     > brew install -v -s piscope/twopi/twopi --devel (require our internal repository for development)
 ```
 
-### Blow is under construction
-Then, on highSierra, the followig commad will do Bottle (binary) install)  
+### the descripton blow is old and needs update in future
+do Bottle (binary) install)  
 ```
    brew tap piScope/twopi
    brew install piScope/twopi/twopi
