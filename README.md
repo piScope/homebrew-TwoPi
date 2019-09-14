@@ -53,22 +53,24 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 6)  install everything from source
 ```
     > brew install -v -s piscope/twopi/twopi
+    or
+    > brew install -v -s piscope/twopi/twopi --use-dev (require our internal repository access)
 ```
 
-# Under construction (bloew 
+### Blow is under construction
 Then, on highSierra, the followig commad will do Bottle (binary) install)  
 ```
    brew tap piScope/twopi
    brew install piScope/twopi/twopi
    brew link --overwrite twopi
 ```   
-## please set PetraM envirometal variable to point the install location.
+#### please set PetraM envirometal variable to point the install location.
 ```
    export PetraM=/usr/local
    piscope -d
 ```   
    
-## memo for bottling
+#### memo for bottling
 ```
    brew install -v --env=std piScope/twopi/twopi --build-bottle
    brew bottle piScope/twopi/twopi

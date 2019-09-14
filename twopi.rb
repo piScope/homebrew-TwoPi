@@ -3,6 +3,7 @@
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Twopi < Formula
   #include Language::Python::Virtualenv
+  option "use-dev", "Use development branch"
   
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
@@ -36,22 +37,32 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
 
-    # need this to install packages
-    system "mkdir -p #{prefix}/lib/python3.7/site-packages"
-    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
-    
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
-    ENV["TwoPiGit"]="git@github.com:piScope"
-    
-    
+
+    # we need to set PYTHONPATH, make site-package dir and source repository
+    if build.with? "use-dev"
+       ENV["TwoPiGit"]="git@github.com:piScope"
+       system "mkdir -p #{prefix}/lib/python3.7/site-packages"
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
+    else
+       ENV["TwoPiGit"]="git@github.com:piScope"
+       # need this to install packages            
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
+       system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+    end
+
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
     system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
 
-    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-
+    if build.with? "use-dev"
+        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    else
+        system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    end
+    
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
   end
