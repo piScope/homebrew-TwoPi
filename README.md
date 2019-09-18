@@ -15,6 +15,9 @@ This formula installs followig libraris.
 2) Install HomeBrew
 ```
      > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+     
+     if you have old installation of HomeBrew, you may want to clean install homebrew following 
+     an instruciton in https://docs.brew.sh/FAQ
 ```
 
 2-1) On Mojave, compiler header file is missing, and you may get this error without installing SDK
