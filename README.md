@@ -2,7 +2,7 @@
 
 This formula installs followig libraris.
    MFEM, Hypre, Metis, Parmetis, MUMPS
-   PetraM (Base, RF, Geom, Driver, MUMPS)
+   PetraM (Base, RF, Geom, MUMPS)
    
 ### Steps to start from fresh install of HomeBrew
 
@@ -12,15 +12,7 @@ This formula installs followig libraris.
 ```     
    You may also need to update XCode from App Store, which takes several hours
    
-2) Install HomeBrew
-```
-     > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-     
-     if you have old installation of HomeBrew, you may want to clean install homebrew following 
-     an instruciton in https://docs.brew.sh/FAQ
-```
-
-2-1) On Mojave, compiler header file is missing, and you may get this error without installing SDK
+1-1) On Mojave, compiler header file is missing, and you may get this error without installing SDK during the steps below.
 ```
 ../include/space.h:12:10: fatal error: 'stdio.h' file not found
 ```
@@ -30,6 +22,14 @@ open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10
 ```
 Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-include-header-files-fatal-error-stdlib-h-file-not-found/4523
 
+   
+2) Install HomeBrew
+```
+     > /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+     
+     if you have old installation of HomeBrew, you may want to clean install homebrew following 
+     an instruciton in https://docs.brew.sh/FAQ
+```
 
 3) install libraries
 ```
@@ -58,9 +58,20 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 ```    
 6)  install everything from source (currenlty we don't provide a bottle)
 ```
-    > brew install -v -s piscope/twopi/twopi
+    > brew install -v -s piscope/twopi/twopi 
     or
     > brew install -v -s piscope/twopi/twopi --devel (requires the accesas to the internal dev repository)
+```
+(hint) If error occurs, a combinent option is to tee the log. A command below allows to save the all output to a file while still showing it on screen.
+```
+    brew install -v -s piscope/twopi/twopi | tee twopi_install.log
+```
+
+7) launch piScope 
+Once the installation is finished successfully, open a new terminal window and try the following command
+```
+ source $(twopi-config --env)   # load enviromental variable to run Petra-M
+ piscope -d                     # launch piscope with -d option to redirect error message to the terminal
 ```
 
 ### the descripton blow is old and needs update in future
