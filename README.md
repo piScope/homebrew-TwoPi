@@ -33,7 +33,7 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 
 3) install libraries
 ```
-   > brew install open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
+   > brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
 ```
 
 4) install Python modules
