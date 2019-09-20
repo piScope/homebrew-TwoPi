@@ -56,17 +56,20 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 ```
     > brew update
 ```    
-6)  install everything from source (currenlty we don't provide a bottle)
+6)  install everything from source (currenlty we don't provide a bottle). this step downloads all source codes and builds it using HomeBrew environment. It will take a while (30-60 mins on a MacBookAir 2019)
 ```
     > brew install -v -s piscope/twopi/twopi 
     or
     > brew install -v -s piscope/twopi/twopi --devel (requires the accesas to the internal dev repository)
 ```
-(hint) If error occurs, a combinent option is to tee the log. A command below allows to save the all output to a file while still showing it on screen.
+(hint 1) If error occurs, a combinent option is to tee the log. A command below allows to save the all output to a file while still showing it on screen.
 ```
-    brew install -v -s piscope/twopi/twopi | tee twopi_install.log
+    > brew install -v -s piscope/twopi/twopi | tee twopi_install.log
 ```
-
+(hint 2) When error occurs and try to reinstall it, you may want to uninstall piscope/twopi/twopi completely
+```
+    > brew uninstall piscope/twopi/twopi
+```
 7) launch piScope 
 Once the installation is finished successfully, open a new terminal window and try the following command
 ```
