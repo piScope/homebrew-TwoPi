@@ -79,6 +79,12 @@ Once the installation is finished successfully, open a new terminal window and t
  piscope -d                     # launch piscope with -d option to redirect error message to the terminal
 ```
 
+### Update exisiting TwoPi
+```
+   brew update
+   brew upgrade -v piscope/twopi/twopi
+```
+
 ### the descripton blow is old and needs update in future
 do Bottle (binary) install)  
 ```
