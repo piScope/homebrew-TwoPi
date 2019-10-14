@@ -81,7 +81,7 @@ Once the installation is finished successfully, open a new terminal window and t
 ### Updating existing TwoPi
 ```
 brew update
-brew upgrade piscope/twopi/twopi
+brew upgrade -v piscope/twopi/twopi | tee $HOME/twopi_install.log
 ```
 
 ### the descripton blow is old and needs update in future
