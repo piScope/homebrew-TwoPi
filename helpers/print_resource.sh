@@ -1,5 +1,18 @@
 #!/bin/bash
 
+if [ $# -ne 2 ]; then
+    echo "print_resource name url"
+    exit
+fi
+if [ $1 == '-h' p]; then
+    echo "print_resource name url"
+    exit
+fi
+if [ $1 == '--help' ]; then
+    echo "print_resource name url"
+    exit
+fi
+
 NAME=$1
 URL=$2
 FILE="$(basename -- $URL)"

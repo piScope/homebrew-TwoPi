@@ -6,13 +6,13 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.3.4.tar.gz"
-  sha256 "3e41d359ed3215165876e5a57167651047e56511b2ea57181bc9bf969ad62db8"
+  url "https://github.com/piScope/TwoPi/archive/0.9.0.tar.gz"
+  sha256 "8e34fff38ceb1f6e3496ac5190e53f1dcab4d46a675546c5901d2150f0724f2f"
 
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.3.4.tar.gz"
-    sha256 "3e41d359ed3215165876e5a57167651047e56511b2ea57181bc9bf969ad62db8"
+    url "https://github.com/piScope/TwoPi/archive/0.9.0.tar.gz"
+    sha256 "8e34fff38ceb1f6e3496ac5190e53f1dcab4d46a675546c5901d2150f0724f2f"
   end 
 
   depends_on "wget"
@@ -57,11 +57,12 @@ class Twopi < Formula
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
-    system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
-    system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
+    #system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
+    system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
+    #system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
 
     if build.devel?
-        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch py37_prep2 --PetraM-branch MFEM4_dev --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     end
@@ -71,9 +72,10 @@ class Twopi < Formula
   end
   
   def caveats; <<~EOS
-    To use Petra-M please source the  enviroment first
-      > source $(twopi-confg --env)
-      > piscope 
+    To use Petra-M, use activartion command to setup envrioment
+      > activate_twopi
+    Then, you can start piScope
+      TwoPi_xxx> piscope 
   EOS
   end
   
