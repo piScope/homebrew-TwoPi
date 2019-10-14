@@ -6,13 +6,14 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.9.0.tar.gz"
-  sha256 "8e34fff38ceb1f6e3496ac5190e53f1dcab4d46a675546c5901d2150f0724f2f"
+  url "https://github.com/piScope/TwoPi/archive/0.9.1.tar.gz"
+  sha256 "1b5b2d53084a839d1ed36f90e5d8abb353d83f1118887bc7f3b93c3f59943437"
 
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.0.tar.gz"
-    sha256 "8e34fff38ceb1f6e3496ac5190e53f1dcab4d46a675546c5901d2150f0724f2f"
+    url "https://github.com/piScope/TwoPi/archive/0.9.1.tar.gz"
+    sha256 "1b5b2d53084a839d1ed36f90e5d8abb353d83f1118887bc7f3b93c3f59943437"
+    
   end 
 
   depends_on "wget"
