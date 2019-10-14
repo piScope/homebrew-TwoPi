@@ -78,6 +78,11 @@ Once the installation is finished successfully, open a new terminal window and t
  source $(twopi-config --env)   # load enviromental variable to run Petra-M
  piscope -d                     # launch piscope with -d option to redirect error message to the terminal
 ```
+### Updating existing TwoPi
+```
+brew update
+brew upgrade piscope/twopi/twopi
+```
 
 ### the descripton blow is old and needs update in future
 do Bottle (binary) install)  
