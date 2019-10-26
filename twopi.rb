@@ -63,8 +63,8 @@ class Twopi < Formula
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
 
     if build.devel?
-        #system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-        system "bin/twopi install MUMPS"
+        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+        #system "bin/twopi install MUMPS"
 
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
