@@ -45,7 +45,7 @@ class Twopi < Formula
 
     if OS.mac? && MacOS.version >= :catalina    
        ENV["CPATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-       
+    end 
     # we need to set PYTHONPATH, make site-package dir and source repository
     if build.devel?
        ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
