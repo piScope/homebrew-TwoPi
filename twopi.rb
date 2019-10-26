@@ -6,15 +6,15 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.93.tar.gz"
-  sha256 "b1db25938b50475568188c857f6b1ece1e8be81d80b9c55396f9992309f6b241"
+  url "https://github.com/piScope/TwoPi/archive/0.9.3.tar.gz"
+  sha256 "0f48cb844e31f8313ea6dd280cf61657e37bcdc5dfd22df1cd66d182ee6fc2b8"
   
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.93.tar.gz"
-    sha256 "b1db25938b50475568188c857f6b1ece1e8be81d80b9c55396f9992309f6b241"
-  end 
-
+    url "https://github.com/piScope/TwoPi/archive/0.9.3.tar.gz"
+    sha256 "0f48cb844e31f8313ea6dd280cf61657e37bcdc5dfd22df1cd66d182ee6fc2b8"
+  end
+  
   depends_on "wget"
   depends_on "zlib"
   depends_on "coreutils"
@@ -43,6 +43,9 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
+    if OS.mac? && MacOS.version >= :catalina    
+       ENV["CPATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+       
     # we need to set PYTHONPATH, make site-package dir and source repository
     if build.devel?
        ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
@@ -57,12 +60,12 @@ class Twopi < Formula
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
-    #system "cp   scripts/twopi_env_brew.sh #{prefix}/bin/twopi_env.sh"
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
-    #system "cp   bin/twopi-config      #{prefix}/bin/twopi-config"        
 
     if build.devel?
-        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+        #system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+        system "bin/twopi install MUMPS"
+
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     end
