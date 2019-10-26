@@ -75,7 +75,7 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 7) launch piScope 
 Once the installation is finished successfully, open a new terminal window and try the following command
 ```
- source $(twopi-config --env)   # load enviromental variable to run Petra-M
+ activate_twopi   # load enviromental variable to run Petra-M
  piscope -d                     # launch piscope with -d option to redirect error message to the terminal
 ```
 ### Updating existing TwoPi
@@ -84,17 +84,18 @@ brew update
 brew upgrade -v piscope/twopi/twopi | tee $HOME/twopi_install.log
 ```
 
+### Update exisiting TwoPi
+```
+   brew update
+   brew upgrade -v piscope/twopi/twopi
+```
+
 ### the descripton blow is old and needs update in future
 do Bottle (binary) install)  
 ```
    brew tap piScope/twopi
    brew install piScope/twopi/twopi
    brew link --overwrite twopi
-```   
-#### please set PetraM envirometal variable to point the install location.
-```
-   export PetraM=/usr/local
-   piscope -d
 ```   
    
 #### memo for bottling
