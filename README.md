@@ -1,8 +1,14 @@
-##  Formula to install the TwoPi (piScope/Petra-M) packages.
+##  Formula to install the TwoPi (piScope/Petra-M) packages (Tested on Mojave and Catalina)
 
 This formula installs followig libraris.
-   MFEM, Hypre, Metis, Parmetis, MUMPS
-   PetraM (Base, RF, Geom, MUMPS)
+
+   * MFEM
+   * Hypre
+   * Metis
+   * Parmetis
+   * MUMPS
+   * piScope
+   * PetraM (Base, RF, Geom, MUMPS)
    
 ### Steps to start from fresh install of HomeBrew
 
