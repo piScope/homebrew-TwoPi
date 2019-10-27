@@ -44,7 +44,7 @@ class Twopi < Formula
     ENV["TwoPiDevice"]="brew"
 
     if OS.mac? && MacOS.version >= :catalina    
-       ENV["CPATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+       ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
     end
 
     # we need to set PYTHONPATH, make site-package dir and source repository
