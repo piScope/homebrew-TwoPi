@@ -8,13 +8,13 @@ class TwopiVenv < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.9.3.tar.gz"
-  sha256 "0f48cb844e31f8313ea6dd280cf61657e37bcdc5dfd22df1cd66d182ee6fc2b8"
+  url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
+  sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"
   
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.3.tar.gz"
-    sha256 "0f48cb844e31f8313ea6dd280cf61657e37bcdc5dfd22df1cd66d182ee6fc2b8"
+    url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
+    sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"
   end
 
   keg_only "our dependency ommponents could have been installed by other formula"
