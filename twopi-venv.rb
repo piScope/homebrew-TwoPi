@@ -114,6 +114,10 @@ class TwopiVenv < Formula
     url "https://files.pythonhosted.org/packages/3f/bf/57733d44afd0cf67580658507bd11d3ec629612d5e0e432beb4b8f6fbb04/future-0.18.1.tar.gz"
     sha256 "858e38522e8fd0d3ce8f0c1feaf0603358e366d5403209674c7b617fa0c24093"
   end
+  resource "mpi4py" do
+    url "https://files.pythonhosted.org/packages/04/f5/a615603ce4ab7f40b65dba63759455e3da610d9a155d4d4cece1d8fd6706/mpi4py-3.0.2.tar.gz"
+    sha256 "f8d629d1e3e3b7b89cb99d0e3bc5505e76cc42089829807950d5c56606ed48e0"
+  end
   
   def install
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
@@ -128,7 +132,9 @@ class TwopiVenv < Formula
     #%w[Pillow future].each do |r|
         venv.pip_install resource(r)
     end
-    #venv.pip_install_and_link buildpath
+    ENV["CC"]=mpicc
+    ENV["CXX"]=mpicc
+    venv.pip_install resource("mpi4py")    
 
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
