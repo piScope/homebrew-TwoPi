@@ -114,8 +114,16 @@ class TwopiVenv < Formula
   end
   
   def install
+     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
+     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
+     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"
+
+     ENV["LDFLAGS"]="-L#{HOMEBREW_PREFIX}/opt/zlib/lib"
+     ENV["CPPFLAGS"]="-I#{HOMEBREW_PREFIX}/opt/zlib/include"     
+     
      venv = virtualenv_create(libexec, python = "python3")
-     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
+     #%w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
+     %w[Pillow future].Each do |r|
          venv.pip_install resource(r)
      end
      venv.pip_install_and_link buildpath
