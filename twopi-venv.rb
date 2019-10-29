@@ -115,7 +115,7 @@ class TwopiVenv < Formula
   
   def install
      venv = virtualenv_create(libexec)
-     %w[six parsedatetime].each do |r|
+     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
          venv.pip_install resource(r)
      end
      venv.pip_install_and_link buildpath
