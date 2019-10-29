@@ -132,8 +132,8 @@ class TwopiVenv < Formula
     #%w[Pillow future].each do |r|
         venv.pip_install resource(r)
     end
-    ENV["CC"]=mpicc
-    ENV["CXX"]=mpicc
+    ENV["CC"]="mpicc"
+    ENV["CXX"]="mpicxx"
     venv.pip_install resource("mpi4py")    
 
     ENV["TwoPiRoot"]="#{prefix}"
