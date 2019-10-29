@@ -17,6 +17,8 @@ class TwopiVenv < Formula
     sha256 "0f48cb844e31f8313ea6dd280cf61657e37bcdc5dfd22df1cd66d182ee6fc2b8"
   end
 
+  keg_only "our dependency ommponents could have been installed by other formula"
+
   depends_on "python"
   depends_on "wget"
   depends_on "zlib"
@@ -118,8 +120,8 @@ class TwopiVenv < Formula
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"
 
-    ENV["LDFLAGS"]="-L#{HOMEBREW_PREFIX}/opt/zlib/lib"
-    ENV["CPPFLAGS"]="-I#{HOMEBREW_PREFIX}/opt/zlib/include"     
+    ENV["LDFLAGS"]="-L#{Formula["zlib"].opt_prefix}/lib"
+    ENV["CPPFLAGS"]="-I#{Formula["zlib"].opt_prefix}/include"
      
     venv = virtualenv_create(libexec, python = "python3")
     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
