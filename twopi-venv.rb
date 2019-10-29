@@ -114,19 +114,55 @@ class TwopiVenv < Formula
   end
   
   def install
-     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
-     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"
 
-     ENV["LDFLAGS"]="-L#{HOMEBREW_PREFIX}/opt/zlib/lib"
-     ENV["CPPFLAGS"]="-I#{HOMEBREW_PREFIX}/opt/zlib/include"     
+    ENV["LDFLAGS"]="-L#{HOMEBREW_PREFIX}/opt/zlib/lib"
+    ENV["CPPFLAGS"]="-I#{HOMEBREW_PREFIX}/opt/zlib/include"     
      
-     venv = virtualenv_create(libexec, python = "python3")
-     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
-     #%w[Pillow future].each do |r|
-         venv.pip_install resource(r)
-     end
-     #venv.pip_install_and_link buildpath
+    venv = virtualenv_create(libexec, python = "python3")
+    %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
+    #%w[Pillow future].each do |r|
+        venv.pip_install resource(r)
+    end
+    #venv.pip_install_and_link buildpath
+
+    ENV["TwoPiRoot"]="#{prefix}"
+    ENV["TwoPiDevice"]="brew"
+
+    if OS.mac? && MacOS.version >= :catalina    
+       ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+    end
+
+    # we need to set PYTHONPATH, make site-package dir and source repository
+    if build.devel?
+       ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
+       ENV["TwoPiGit"]="git@github.com:piScope"
+       system "mkdir -p #{prefix}/lib/python3.7/site-packages"
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
+
+    else
+       ENV["TwoPiGit"]="git@github.com:piScope"
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
+       system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+    end
+
+    system "make install PREFIX=#{prefix}"
+    system "mkdir -p #{prefix}/bin"    
+    system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
+
+    if build.devel?
+        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+        #system "bin/twopi install MUMPS"
+
+    else
+        system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    end
+    
+    # for testing one by one.. do like this
+    #system "bin/twopi install MUMPS"
+     
   end
 
   
