@@ -114,7 +114,7 @@ class TwopiVenv < Formula
   end
   
   def install
-     venv = virtualenv_create(libexec)
+     venv = virtualenv_create(libexec, python = "python3")
      %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
          venv.pip_install resource(r)
      end
