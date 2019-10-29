@@ -129,7 +129,6 @@ class TwopiVenv < Formula
      
     venv = virtualenv_create(libexec, python = "python3")
     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
-    #%w[Pillow future].each do |r|
         venv.pip_install resource(r)
     end
     ENV["CC"]="mpicc"
@@ -148,8 +147,8 @@ class TwopiVenv < Formula
        ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
        ENV["TwoPiGit"]="git@github.com:piScope"
        system "mkdir -p #{prefix}/lib/python3.7/site-packages"
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/libexec/lib/python3.7/site-packages"       
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
-
     else
        ENV["TwoPiGit"]="git@github.com:piScope"
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
