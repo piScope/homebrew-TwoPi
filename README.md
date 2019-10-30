@@ -37,33 +37,70 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
      an instruciton in https://docs.brew.sh/FAQ
 ```
 
-3) install libraries
-```
-   > brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
-```
-
-4) install Python modules
-```
-   > pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future
-```
-
-5) install mpi4py
-```
-   > CC=mpicc CXX=mpicxx pip3 install mpi4py
-```
-
-4)  tap to the custom formula
+3)  add tap to our TwoPi formula
 ```
     > brew tap piScope/twopi
     or
     > brew tap piScope/twopi ssh://git@github.mit.edu/piScope/homebrew-TwoPi
       (requires the accesas to the internal dev repository)
-```    
-5)  in case, update formula
+```
+
+3a)  in case, update formula
 ```
     > brew update
-```    
-6)  install everything from source (currenlty we don't provide a bottle). this step downloads all source codes and builds it using HomeBrew environment. It will take a while (30-60 mins on a MacBookAir 2019)
+```
+
+4) Install modules
+
+piScope/Petra-M has a long list of depndencies. A user can install all of them via HomeBrew.
+We provide two approaches in terms of how the dependency libraries are handled.
+
+
+a) Install dependencies together with TwoPi modules (simpler approach)
+   In this case, the isntallation is done by executing one brew install. It is simpler,
+   and all dependencies are installed in an isloated place (Keg-Only mode).
+   A main disadvantage is that the activation script is not linked in /usr/local, and
+   a user needs to call it with full path or add it in .bashrc.
+   
+   
+b) Manually install all dependencies (involves more steps)
+   In this case, a user install all depnedenies using brew install/pip3 commands. Then, the TwoPi
+   modules are istalled using brew install command. In this case, the libraries are installed in the
+   regular place (/usr/local/...). This approach is recommended if a user wants to make the dependenciy
+   libraries available from other HB packages.
+
+a-1) install everything
+```
+  > brew install twopi-venv
+```
+
+a-2) launch piScope 
+Once the installation is finished successfully, open a new terminal window and try the following command
+```
+ /usr/local/opt/twopi-venv/bin/activate_twopi   # load enviromental variable to run Petra-M
+  piscope -d                     # launch piscope with -d option to redirect error message to the terminal
+```
+A user can also add the above location to PATH. If you are using bash you can do
+```
+  > echo 'export PATH="/usr/local/opt/twopi-venv/bin:$PATH"' >> ~/.bash_profile
+```  
+
+b-1) install libraries
+```
+   > brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython 
+```
+
+b-2) install Python modules
+```
+   > pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future
+```
+
+b-3) install mpi4py
+```
+   > CC=mpicc CXX=mpicxx pip3 install mpi4py
+```
+
+b-4)  install everything from source (currenlty we don't provide a bottle). this step downloads all source codes and builds it using HomeBrew environment. It will take a while (30-60 mins on a MacBookAir 2019)
 ```
     > brew install -v -s piscope/twopi/twopi 
     or
@@ -78,33 +115,28 @@ Detail is discuss in https://discourse.brew.sh/t/clang-can-no-longer-find-usr-in
 ```
     > brew uninstall piscope/twopi/twopi
 ```
-7) launch piScope 
+b-5) launch piScope 
 Once the installation is finished successfully, open a new terminal window and try the following command
 ```
  activate_twopi   # load enviromental variable to run Petra-M
  piscope -d                     # launch piscope with -d option to redirect error message to the terminal
 ```
-### Updating existing TwoPi
+
+
+### Keeping TwoPi modules updated
+The activation command (activate_twopi) adds an alias to twopi command. One can use it to
+update piScope and PetraM modules
+
 ```
-brew update
-brew upgrade -v piscope/twopi/twopi | tee $HOME/twopi_install.log
+  > twopi update <module name>   # to check if update exists
+  > twopi update --install <module name>   # to check if update exists
+
+  if <module name> is not specified. It will check all modules
+
 ```
 
-### Update exisiting TwoPi
-```
-   brew update
-   brew upgrade -v piscope/twopi/twopi
-```
-
-### the descripton blow is old and needs update in future
-do Bottle (binary) install)  
-```
-   brew tap piScope/twopi
-   brew install piScope/twopi/twopi
-   brew link --overwrite twopi
-```   
-   
-#### memo for bottling
+#### memo for bottling (This section needs update)
+NOte: We are currently not generating bottle. All installaion is done by downloading and compiling source. 
 ```
    brew install -v --env=std piScope/twopi/twopi --build-bottle
    brew bottle piScope/twopi/twopi
