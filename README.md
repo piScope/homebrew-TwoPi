@@ -73,7 +73,7 @@ a-1) install everything
 ```
   > brew install twopi-venv
   or
-  > brew install --devel twopi-venv
+  > brew install --devel -v twopi-venv
   (requires the accesas to the internal dev repository. but it is more up-to-date)
 ```
 
