@@ -72,6 +72,9 @@ b) Manually install all dependencies (involves more steps)
 a-1) install everything
 ```
   > brew install twopi-venv
+  or
+  > brew install --devel twopi-venv
+  (requires the accesas to the internal dev repository. but it is more up-to-date)
 ```
 
 a-2) launch piScope 
