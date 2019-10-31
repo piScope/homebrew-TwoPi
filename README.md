@@ -68,6 +68,9 @@ b) Manually install all dependencies (involves more steps)
    modules are istalled using brew install command. In this case, the libraries are installed in the
    regular place (/usr/local/...). This approach is recommended if a user wants to make the dependenciy
    libraries available from other HB packages.
+   
+(warning) Installing both (a) and (b) would introduce dylib complicated dependency between two, which 
+causes problems. Make sure to uninstall the other one, you are switching between (a) and (b) 
 
 a-1) install everything
 ```
