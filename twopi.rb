@@ -38,7 +38,7 @@ class Twopi < Formula
     # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/bin
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/bin"
 
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
