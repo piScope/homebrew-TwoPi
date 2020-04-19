@@ -70,7 +70,6 @@ class Twopi < Formula
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     system "which python"
-    system "bin/twopi install PyMFEM"
     
     if build.devel?
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
