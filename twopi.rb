@@ -6,13 +6,13 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.9.7.tar.gz"
-  sha256 "d9d4b4a97c8280e0d5f09ccf33cc952a3904a5e72b57a443e31fd6b0950a6ee1"
+  url "https://github.com/piScope/TwoPi/archive/0.9.8.tar.gz"
+  sha256 "281c9b4ef28fd21fe86e567af24d62d5dd35bbf65435270651fb992e72e300d9"
   
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.7.tar.gz"
-    sha256 "d9d4b4a97c8280e0d5f09ccf33cc952a3904a5e72b57a443e31fd6b0950a6ee1"
+    url "https://github.com/piScope/TwoPi/archive/0.9.8.tar.gz"
+    sha256 "281c9b4ef28fd21fe86e567af24d62d5dd35bbf65435270651fb992e72e300d9"
   end
   
   depends_on "wget"
@@ -23,7 +23,7 @@ class Twopi < Formula
   depends_on "gmsh"        
   depends_on "open-mpi"
   depends_on "scalapack"    
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "numpy"
   depends_on "scipy"
   depends_on "wxpython"
@@ -51,12 +51,12 @@ class Twopi < Formula
     if build.devel?
        ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
        ENV["TwoPiGit"]="git@github.com:piScope"
-       system "mkdir -p #{prefix}/lib/python3.7/site-packages"
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
+       system "mkdir -p #{prefix}/lib/python3.8/site-packages"
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"
     else
        ENV["TwoPiGit"]="git@github.com:piScope"
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
-       system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+       system "mkdir -p #{prefix}/lib/python3.8/site-packages"      
+       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"      
     end
 
     system "make install PREFIX=#{prefix}"
