@@ -64,6 +64,9 @@ class Twopi < Formula
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
     system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3 #{prefix}/bin/python"
+
+    # install dependency
+    system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     system "which python"
