@@ -38,7 +38,7 @@ class Twopi < Formula
     # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python/libexec/bin"    
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/bin
 
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
@@ -64,8 +64,9 @@ class Twopi < Formula
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
 
     if build.devel?
+        system "bin/twopi install PyMFEM"
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-        #system "bin/twopi install MUMPS"
+        
 
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
