@@ -5,14 +5,14 @@ class Twopi < Formula
   #include Language::Python::Virtualenv
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-
-  url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
-  sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"  
+  
+  url "https://github.com/piScope/TwoPi/archive/0.9.5.tar.gz"
+  sha256 "7743545813e9df8526f71c35ba23b03431638c2ae7f5d59e277d3154ed5fe7b8"
   
   devel do
     ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
-    sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"  
+     url "https://github.com/piScope/TwoPi/archive/0.9.5.tar.gz"
+     sha256 "7743545813e9df8526f71c35ba23b03431638c2ae7f5d59e277d3154ed5fe7b8"
   end
   
   depends_on "wget"
