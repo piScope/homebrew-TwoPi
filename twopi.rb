@@ -28,7 +28,8 @@ class Twopi < Formula
   depends_on "scipy"
   depends_on "wxpython"
   depends_on "netcdf"    
-  depends_on "hdf5"  
+  depends_on "hdf5"
+  depends_on "mpi4py"    
   
   
   def install
@@ -64,10 +65,7 @@ class Twopi < Formula
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
 
     if build.devel?
-        system "bin/twopi install PyMFEM"
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-        
-
     else
         system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     end
