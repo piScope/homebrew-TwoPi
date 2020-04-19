@@ -63,6 +63,9 @@ class Twopi < Formula
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
+    system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.8/bin #{prefix}/bin/python"
+    
+    ENV.prepend_path "PATH", #{prefix}/bin"    
 
     if build.devel?
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
