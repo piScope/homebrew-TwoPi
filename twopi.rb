@@ -145,12 +145,12 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3"
     
-    system "bin/twopi install PyMFEM"
-    if build.devel?
-        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    else
-        system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    end
+    #system "bin/twopi install PyMFEM"
+    #if build.devel?
+    #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #else
+    #    system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #end
     
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
