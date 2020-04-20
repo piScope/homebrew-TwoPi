@@ -31,7 +31,6 @@ class Twopi < Formula
   depends_on "hdf5"
   depends_on "mpi4py"    
   
-  
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
