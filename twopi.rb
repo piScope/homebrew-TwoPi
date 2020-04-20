@@ -65,7 +65,7 @@ class Twopi < Formula
     system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.8/bin #{prefix}/bin/python"
 
     # install dependency
-    system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
+    #system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     system "which python"
