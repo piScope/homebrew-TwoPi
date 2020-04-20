@@ -114,6 +114,9 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
+    ENV["LDFLAGS"]="-L#{Formula["zlib"].opt_prefix}/lib -L#{Formula["freetype"].opt_prefix}/lib"
+    ENV["CPPFLAGS"]="-I#{Formula["zlib"].opt_prefix}/include  -L#{Formula["freetype"].opt_prefix}/include"
+
     venv = virtualenv_create(libexec, python = "python3")
     %w[six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future].each do |r|
         venv.pip_install resource(r)
