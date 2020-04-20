@@ -18,6 +18,7 @@ class Twopi < Formula
   depends_on "wget"
   depends_on "zlib"
   depends_on "coreutils"
+  depends_on "freetype"
   depends_on "llvm"
   depends_on "libomp"
   depends_on "gmsh"        
