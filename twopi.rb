@@ -71,7 +71,7 @@ class Twopi < Formula
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3"
     
     system "which python"
-    system "$(brew --prefix)/opt/python@3.8/bin/python3 -c 'import mpi4py;print(mpi4py.__file__)'"
+    system "$(brew --prefix)/opt/python@3.8/bin/python3 -c 'import six"
     system "bin/twopi install PyMFEM"
     if build.devel?
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
