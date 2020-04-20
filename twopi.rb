@@ -39,7 +39,7 @@ class Twopi < Formula
     # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/bin"
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/libexec/bin"
 
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
@@ -63,7 +63,6 @@ class Twopi < Formula
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
-    system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3 #{prefix}/bin/python"
 
     # install dependency
     system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
