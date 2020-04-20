@@ -68,6 +68,8 @@ class Twopi < Formula
     #system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
+    ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3"
+    
     system "which python"
     system "$(brew --prefix)/opt/python@3.8/bin/python3 -c 'import mpi4py;print(mpi4py.__file__)'"
     system "bin/twopi install PyMFEM"
