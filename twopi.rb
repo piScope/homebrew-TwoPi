@@ -6,13 +6,13 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/0.9.9.tar.gz"
-  sha256 "4f27c27542bd563bf65f05629deff053d29597a9a5d96039fedd3214e5bc2354"
+  url "https://github.com/piScope/TwoPi/archive/1.0.0.tar.gz"
+  sha256 "7434773564126daed380c86f9a57c665b8a39996a3f09ad70affb573cd46a1b6"    
   
   devel do
-    ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.9.tar.gz"
-    sha256 "4f27c27542bd563bf65f05629deff053d29597a9a5d96039fedd3214e5bc2354"
+    ## For now it is the same files    
+    url "https://github.com/piScope/TwoPi/archive/1.0.0.tar.gz"
+    sha256 "7434773564126daed380c86f9a57c665b8a39996a3f09ad70affb573cd46a1b6"    
   end
   
   depends_on "wget"
@@ -68,7 +68,7 @@ class Twopi < Formula
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     system "which python"
-    system "bin/twopi install HYPRE"
+    system "bin/twopi install hypre"
     
     if build.devel?
         system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
