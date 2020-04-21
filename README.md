@@ -14,7 +14,7 @@ This formula installs followig libraris.
   https://piscope.psfc.mit.edu/index.php/Installing_Petra-M
   
 
-### Keeping TwoPi modules updated
+### Usage (launching piScope and keeping TwoPi modules updated)
 The activation command (activate_twopi) adds an alias to twopi command. One can use it to
 update piScope and PetraM modules
 
