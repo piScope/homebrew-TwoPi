@@ -85,6 +85,10 @@ class Twopi < Formula
       > activate_twopi
     Then, you can start piScope
       TwoPi_xxx> piscope 
+    You can use twop command to update PetraM modules
+      TwoPi_xxx> twopi update <module name>             # to check if update exists
+      TwoPi_xxx> twopi update --install <module name>   # to check if update exists
+      TwoPi_xxx> twopi update --install <module name>   # to check if update exists
   EOS
   end
   

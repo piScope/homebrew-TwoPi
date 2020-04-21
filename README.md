@@ -19,11 +19,15 @@ The activation command (activate_twopi) adds an alias to twopi command. One can 
 update piScope and PetraM modules
 
 ```
-  > twopi update <module name>   # to check if update exists
-  > twopi update --install <module name>   # to check if update exists
-
-  if <module name> is not specified. It will check all modules
-
+    To use Petra-M, use activartion command to setup envrioment
+      > activate_twopi
+    Then, you can start piScope
+      TwoPi_xxx> piscope 
+    You can use twop command to update PetraM modules
+      TwoPi_xxx> twopi update <module name>             # to check if update exists
+      TwoPi_xxx> twopi update --install <module name>   # to check if update exists
+      TwoPi_xxx> twopi update --install <module name>   # to check if update exists
+    if <module name> is not specified. It will check all modules
 ```
 
 #### memo for bottling (This section needs update)
