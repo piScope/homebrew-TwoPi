@@ -10,6 +10,9 @@ This formula installs followig libraris.
    * piScope
    * PetraM (Base, RF, Geom, MUMPS)
    
+### Install instruction
+  https://piscope.psfc.mit.edu/index.php/Installing_Petra-M
+   
 ### Steps to start from fresh install of HomeBrew
 
 1) Install XCode CommandLineTool
