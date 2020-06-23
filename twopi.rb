@@ -54,7 +54,7 @@ class Twopi < Formula
        system "mkdir -p #{prefix}/lib/python3.8/site-packages"
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"
     else
-       ENV["TwoPiGit"]="git@github.com:piScope"
+       ENV["TwoPiGit"]="https://github.com/piScope"
        system "mkdir -p #{prefix}/lib/python3.8/site-packages"      
        ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"      
     end
