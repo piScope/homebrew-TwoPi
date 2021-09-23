@@ -17,7 +17,7 @@ class Twopi < Formula
   depends_on "gmsh"        
   depends_on "open-mpi"
   depends_on "scalapack"    
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "numpy"
   depends_on "scipy"
   depends_on "wxpython"
@@ -32,7 +32,7 @@ class Twopi < Formula
     # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/llvm/bin"
-    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.8/bin"
+    ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/opt/python@3.9/bin"
 
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
@@ -45,24 +45,24 @@ class Twopi < Formula
     #if build.devel?
     #   ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
     #   ENV["TwoPiGit"]="git@github.com:piScope"
-    #   system "mkdir -p #{prefix}/lib/python3.8/site-packages"
-    #   ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"
+    #   system "mkdir -p #{prefix}/lib/python3.9/site-packages"
+    #   ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.9/site-packages"
     #else
     ENV["TwoPiGit"]="https://github.com/piScope"
-    system "mkdir -p #{prefix}/lib/python3.8/site-packages"      
-    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"      
+    system "mkdir -p #{prefix}/lib/python3.9/site-packages"      
+    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.9/site-packages"      
     #end
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
-    #system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.8/bin #{prefix}/bin/python"
+    #system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin #{prefix}/bin/python"
 
     # install dependency
     #system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
-    ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3"
+    ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
 
     #if build.devel?
     #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
