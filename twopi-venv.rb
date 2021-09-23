@@ -11,11 +11,11 @@ class TwopiVenv < Formula
   url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
   sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"
   
-  devel do
-    ## For now it is the same files
-    url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
-    sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"
-  end
+  #devel do
+  # For now it is the same files
+  #  url "https://github.com/piScope/TwoPi/archive/0.9.4.tar.gz"
+  #  sha256 "4899c0a32b949393876214a1eeaa04b4293ec33ceca3e341f09a2b5b3a25d476"
+  # end
 
   keg_only "our dependency ommponents could have been installed by other formula"
 
@@ -143,29 +143,28 @@ class TwopiVenv < Formula
     end
 
     # we need to set PYTHONPATH, make site-package dir and source repository
-    if build.devel?
-       ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
-       ENV["TwoPiGit"]="git@github.com:piScope"
-       system "mkdir -p #{prefix}/lib/python3.7/site-packages"
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/libexec/lib/python3.7/site-packages"       
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
-    else
-       ENV["TwoPiGit"]="git@github.com:piScope"
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
-       system "mkdir -p #{prefix}/lib/python2.7/site-packages"
-    end
+    #if build.devel?
+    #   ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
+    #   ENV["TwoPiGit"]="git@github.com:piScope"
+    #   system "mkdir -p #{prefix}/lib/python3.7/site-packages"
+    #   ENV.prepend_path "PYTHONPATH", "#{prefix}/libexec/lib/python3.7/site-packages"       
+    #   ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.7/site-packages"
+    #else
+    ENV["TwoPiGit"]="git@github.com:piScope"
+    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python2.7/site-packages"    
+    system "mkdir -p #{prefix}/lib/python2.7/site-packages"
+    #end
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
 
-    if build.devel?
-        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-        #system "bin/twopi install MUMPS"
-
-    else
-        system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    end
+    #if build.devel?
+    #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #system "bin/twopi install MUMPS"
+    #else
+    system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #end
     
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"

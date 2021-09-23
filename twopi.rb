@@ -9,12 +9,6 @@ class Twopi < Formula
   url "https://github.com/piScope/TwoPi/archive/1.0.0.tar.gz"
   sha256 "7434773564126daed380c86f9a57c665b8a39996a3f09ad70affb573cd46a1b6"    
   
-  devel do
-    ## For now it is the same files    
-    url "https://github.com/piScope/TwoPi/archive/1.0.0.tar.gz"
-    sha256 "7434773564126daed380c86f9a57c665b8a39996a3f09ad70affb573cd46a1b6"    
-  end
-  
   depends_on "wget"
   depends_on "zlib"
   depends_on "coreutils"
@@ -48,16 +42,16 @@ class Twopi < Formula
     end
 
     # we need to set PYTHONPATH, make site-package dir and source repository
-    if build.devel?
-       ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
-       ENV["TwoPiGit"]="git@github.com:piScope"
-       system "mkdir -p #{prefix}/lib/python3.8/site-packages"
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"
-    else
-       ENV["TwoPiGit"]="https://github.com/piScope"
-       system "mkdir -p #{prefix}/lib/python3.8/site-packages"      
-       ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"      
-    end
+    #if build.devel?
+    #   ohai "!!!! Development branch was chosen. This option is valid only if you have an access !!!!"    
+    #   ENV["TwoPiGit"]="git@github.com:piScope"
+    #   system "mkdir -p #{prefix}/lib/python3.8/site-packages"
+    #   ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"
+    #else
+    ENV["TwoPiGit"]="https://github.com/piScope"
+    system "mkdir -p #{prefix}/lib/python3.8/site-packages"      
+    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.8/site-packages"      
+    #end
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"    
@@ -70,11 +64,11 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.8/bin/python3"
 
-    if build.devel?
-        system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    else
-        system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    end
+    #if build.devel?
+    #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #else
+    system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #end
     
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
