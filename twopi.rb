@@ -77,6 +77,7 @@ class Twopi < Formula
     #else
     #system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     system "which python"
+    system "python -c 'import numpy;print(numpy.__version__)'"
     system "bin/twopi install PyMFEM"
     #end
 
