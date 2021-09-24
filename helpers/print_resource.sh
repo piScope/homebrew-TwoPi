@@ -4,7 +4,7 @@ if [ $# -ne 2 ]; then
     echo "print_resource name url"
     exit
 fi
-if [ $1 == '-h' p]; then
+if [ $1 == '-h' ]; then
     echo "print_resource name url"
     exit
 fi
