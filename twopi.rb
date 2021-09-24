@@ -64,14 +64,23 @@ class Twopi < Formula
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
-    system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
-    
+
+    if (File.file?("#{prefix}/bin/python"))
+        delete_link = 0
+    else
+        delete_link = 1
+        system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"            
+    end
+        
     #if build.devel?
     #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #else
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #end
-    
+
+    if delete_link > 0
+        system "rm #{prefix}/bin/python"
+    end
     
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
