@@ -7,7 +7,7 @@ class Twopi < Formula
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
   url "https://github.com/piScope/TwoPi/archive/refs/tags/v1.0.2.tar.gz"
-  sha256 "282e44f0dbe7975c52b3c704717b80dc364d465c10f97ca8991420dc745bd299"
+  sha256 "8dd24c024fc8c176a8e73e09330ed001d20936e1499410f74dcbc81cd9a54a1b"
   
   depends_on "wget"
   depends_on "cmake"
