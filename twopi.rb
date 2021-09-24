@@ -75,10 +75,8 @@ class Twopi < Formula
     #if build.devel?
     #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #else
-    #system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    system "which python"
-    system "python -c 'import numpy;print(numpy.__version__)'"
-    system "bin/twopi install PyMFEM"
+    system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
+    #system "bin/twopi install PyMFEM"
     #end
 
     if delete_link > 0
