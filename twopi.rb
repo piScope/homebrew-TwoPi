@@ -54,7 +54,7 @@ class Twopi < Formula
     #end
 
     system "make install PREFIX=#{prefix}"
-    system "mkdir -p #{prefix}/bin"    
+    system "mkdir -p #{prefix}/bin"
     system "cp   scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
     #system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin #{prefix}/bin/python"
 
@@ -63,7 +63,8 @@ class Twopi < Formula
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
-
+    system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
+    
     #if build.devel?
     #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #else
