@@ -10,6 +10,7 @@ class Twopi < Formula
   sha256 "282e44f0dbe7975c52b3c704717b80dc364d465c10f97ca8991420dc745bd299"
   
   depends_on "wget"
+  depends_on "cmake"
   depends_on "zlib"
   depends_on "coreutils"
   depends_on "llvm"
