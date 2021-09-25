@@ -75,6 +75,7 @@ class Twopi < Formula
     #if build.devel?
     #    system "bin/twopi install modules --PyMFEM-branch master --PetraM-Repo git@github.mit.edu:piScope  --piScope-branch master --PetraM-branch master --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #else
+    system "#{HOMEBREW_PREFIX}/opt/python@3/bin/pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 h5py PyPDF2 pdfrw future"
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #system "bin/twopi install PyMFEM"
     #end
