@@ -15,7 +15,7 @@ class Twopi < Formula
   depends_on "coreutils"
   depends_on "llvm"
   depends_on "libomp"
-  depends on "opencascade"  
+  depends_n "opencascade"  
   depends_on "gmsh"        
   depends_on "open-mpi"
   depends_on "scalapack"    
