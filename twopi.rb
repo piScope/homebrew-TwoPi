@@ -6,7 +6,7 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/refs/tags/v1.0.7.tar.gz"
+  url "https://github.com/piScope/TwoPi.git", tag: "v1.0.11", revision: "103f0e303f0f56f3af1f326d938e8156dd67f4e0"
   sha256 "61e116e591ebed052eb1695dc84407b5908b2fb350b43f6f68337fbdc2d1d277"
   
   depends_on "wget"
@@ -46,7 +46,7 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
-    if OS.mac? && MacOS.version >= :catalina    
+    if OS.mac? && version "v1.0.11" >= :catalina    
        ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
     end
 
