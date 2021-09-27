@@ -6,7 +6,7 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
   
-  url "https://github.com/piScope/TwoPi/archive/v1.0.16.tar.gz", tag: "v1.0.11", revision: "103f0e303f0f56f3af1f326d938e8156dd67f4e0"
+  url "https://github.com/piScope/TwoPi/archive/v1.0.16.tar.gz"
   sha256 "0a6575f42db8cb8956b5b2d20466551c4165650daab75561c7668e51a6c8e1ab"
   
   depends_on "wget"
