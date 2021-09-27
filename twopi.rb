@@ -46,7 +46,7 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
-    if OS.mac? && version "v1.0.11" >= :catalina    
+    if OS.mac? && MacOS.version  >= :catalina    
        ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
     end
 
