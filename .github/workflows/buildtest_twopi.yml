@@ -1,0 +1,44 @@
+name: brew build_twopi
+on:
+  push:
+    branches:
+      - main
+    path:
+      - "twopi.rb"
+  pull_request:
+    path:
+      - "twopi.rb"
+
+jobs:
+  build_create_bottle:
+    strategy:
+       matrix:
+         os: [macos-10.15, macos-11]
+    runs-on: ${{ matrix.os }}    
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+    
+      - name: Install-dependencies1
+        run: |
+            brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython mpi4py mercurial
+      - name: Install-dependencies2
+        run: |
+             $(brew --prefix)/opt/Python@3/bin/pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 h5py PyPDF2 pdfrw future
+      - name: Build a bottle using Homebrew
+        run: |
+            brew tap piScope/twopi
+            brew install -v piscope/twopi/twopi --build-bottle
+            brew bottle piscope/twopi/twopi	    
+      - name: Extact Version String
+        run: |
+          echo "TAG_VERSION=$(echo ${{github.event.release.tag_name}} | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
+
+      - name: Upload bottles as artifact
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: '*.bottle.*'
+
