@@ -3,10 +3,10 @@ on:
   push:
     branches:
       - main
-    path:
+    paths:
       - "twopi.rb"
   pull_request:
-    path:
+    paths:
       - "twopi.rb"
 
 jobs:
