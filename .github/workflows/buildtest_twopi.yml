@@ -10,7 +10,7 @@ on:
       - "twopi.rb"
 
 jobs:
-  build_create_bottle:
+  Build_Create_Bottle:
     strategy:
        matrix:
          os: [macos-10.15, macos-11]
