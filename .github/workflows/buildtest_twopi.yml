@@ -8,14 +8,11 @@ on:
       - "twopi.rb"
 
 jobs:
-  strategy:
-    matrix:
-      os: [macos-10.15, macos-11]
-
   build_create_bottle:
-    name: Build and distribute Homebrew bottle for macOS
+    strategy:
+       matrix:
+         os: [macos-10.15, macos-11]
     runs-on: ${{ matrix.os }}    
-    needs: [update_formula_version]
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
