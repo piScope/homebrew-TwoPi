@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    path:
+      - "twopi.rb"
   pull_request:
     path:
       - "twopi.rb"
