@@ -12,7 +12,6 @@ class Twopi < Formula
   end
 
   depends_on "cmake"
-  depends_on "wget"
   depends_on "coreutils"
   depends_on "llvm"
   depends_on "opencascade"
@@ -20,14 +19,15 @@ class Twopi < Formula
   depends_on "libomp"
   depends_on "numpy"
   depends_on "scipy"
-  depends_on "wxpython"
+  depends_on "wget"  
   depends_on "netcdf"
   depends_on "hdf5"
+  depends_on "wxpython"  
   depends_on "mpi4py"
-  depends_on "zlib"
   depends_on "open-mpi"
   depends_on "scalapack"    
   depends_on "python@3.9"
+  depends_on "zlib"  
   
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
