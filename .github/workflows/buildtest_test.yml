@@ -34,7 +34,7 @@ jobs:
 
       - name: Build a bottle using Homebrew
         run: |
-    	    echo ${{ github.event.pull_request.repository }}
+            echo ${{ github.event.pull_request.repository }}
             brew tap piScope/twopi
             brew install -v piscope/twopi/test --build-bottle
             #brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/TwoPi/releases/download/Test-0.3.0
