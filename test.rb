@@ -7,7 +7,7 @@ class Test < Formula
 
   depends_on "python@3.9"
   
-  def instal
+  def install
     #system Formula["python@3.x"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     system("echo #{prefix}")
     system("ls -l")
