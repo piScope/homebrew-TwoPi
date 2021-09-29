@@ -16,22 +16,21 @@ class Twopi < Formula
   depends_on "gmsh"
   depends_on "libomp"
   depends_on "llvm"
-  depends_on "numpy"
   depends_on "netcdf"
   depends_on "hdf5"
-  depends_on "opencascade"
+  depends_on "numpy"  
   depends_on "mpi4py"
   depends_on "open-mpi"
-  depends_on "scalapack"
+  depends_on "opencascade"  
   depends_on "python@3.9"
+  depends_on "scalapack"  
   depends_on "scipy"
   depends_on "wget"
   depends_on "wxpython"
   depends_on "zlib"
 
   def install
-    ENV.deparallelize  # if your formula fails when building in parallel
-    # Remove unrecognized options if warned by configure
+    ENV.deparallelize
 
     # w/o this, it does't find wget, llvm-clang (for OMP), and python3
     ENV.prepend_path "PATH", "#{HOMEBREW_PREFIX}/bin"
@@ -49,9 +48,9 @@ class Twopi < Formula
 
     system "echo prefix is #{prefix}"
 
-    #pip_dependencies = ["matplotlib", "Pillow", "hgapi", "PyOpenGL", "netCDF4", "h5py", "PyPDF2", "pdfrw", "future"]
-    #for name in pip_dependencies do 
-    #  resource(name).stage { system "#{HOMEBREW_PREFIX}/opt/python@3/bin/python3", *Language::Python.setup_install_args("#{prefix}") }
+    # pip_dependencies = ["matplotlib", "Pillow", "hgapi", "PyOpenGL", "netCDF4", "h5py", "PyPDF2", "pdfrw", "future"]
+    # for name in pip_dependencies do 
+    #   resource(name).stage { system "#{HOMEBREW_PREFIX}/opt/python@3/bin/python3", *Language::Python.setup_install_args("#{prefix}") }
     #end
     
     ENV["TwoPiGit"]="https://github.com/piScope"
@@ -61,10 +60,10 @@ class Twopi < Formula
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"
     system "cp scripts/activation_scripts/activate_twopi_brew #{prefix}/bin/activate_twopi"
-    #system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin #{prefix}/bin/python"
+    # system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin #{prefix}/bin/python"
 
     # install dependency
-    #system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
+    # system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
     
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
