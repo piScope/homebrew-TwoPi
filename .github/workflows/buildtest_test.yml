@@ -1,0 +1,40 @@
+name: brew buildtest_test
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "test.rb"
+  pull_request:
+    paths:
+      - "test.rb"
+
+jobs:
+  Build_Create_Bottle:
+    strategy:
+       matrix:
+         os: [macos-10.15, macos-11]
+    runs-on: ${{ matrix.os }}    
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+    
+      - name: Build a bottle using Homebrew
+        run: |
+            brew tap piScope/twopi
+            brew install -v piscope/twopi/test --build-bottle
+            brew bottle piscope/twopi/test
+            ls -l
+
+      - name: Extact Version String
+        run: |
+          echo "TAG_VERSION=$(echo ${{github.event.release.tag_name}} | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
+
+      - name: Upload bottles as artifact
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: '*.bottle.*'
+
