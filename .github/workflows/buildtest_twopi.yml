@@ -30,7 +30,8 @@ jobs:
         run: |
             brew tap piScope/twopi
             brew install -v piscope/twopi/twopi --build-bottle
-            brew bottle piscope/twopi/twopi	    
+            brew bottle piscope/twopi/twopi
+	    ls -l
       - name: Extact Version String
         run: |
           echo "TAG_VERSION=$(echo ${{github.event.release.tag_name}} | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
