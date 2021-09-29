@@ -16,14 +16,14 @@ class Twopi < Formula
   depends_on "gmsh"
   depends_on "libomp"
   depends_on "llvm"
-  depends_on "netcdf"
   depends_on "hdf5"
-  depends_on "numpy"  
+  depends_on "netcdf"
   depends_on "mpi4py"
+  depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "opencascade"  
+  depends_on "opencascade"
   depends_on "python@3.9"
-  depends_on "scalapack"  
+  depends_on "scalapack"
   depends_on "scipy"
   depends_on "wget"
   depends_on "wxpython"
@@ -72,9 +72,9 @@ class Twopi < Formula
         delete_link = 0
     else
         delete_link = 1
-        system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"            
+        system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
     end
-        
+
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #system "bin/twopi install PyMFEM"
 
@@ -85,7 +85,7 @@ class Twopi < Formula
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
   end
-  
+
   def caveats; <<~EOS
     To use Petra-M, use activartion command to setup envrioment
       > activate_twopi
@@ -97,7 +97,7 @@ class Twopi < Formula
       TwoPi_xxx> twopi update --install <module name>   # to check if update exists
   EOS
   end
-  
+
   test do
     # `test do` will create, run in and delete a temporary directory.
     #
