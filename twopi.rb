@@ -42,8 +42,8 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
-    if OS.mac? && MacOS.version  >= :catalina
-       ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+    if OS.mac? && MacOS.version >= :catalina
+      ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
     end
 
     system "echo prefix is #{prefix}"
@@ -51,7 +51,7 @@ class Twopi < Formula
     # pip_dependencies = ["matplotlib", "Pillow", "hgapi", "PyOpenGL", "netCDF4", "h5py", "PyPDF2", "pdfrw", "future"]
     # for name in pip_dependencies do
     #   resource(name).stage { system "#{HOMEBREW_PREFIX}/opt/python@3/bin/python3", *Language::Python.setup_install_args("#{prefix}") }
-    #end
+    # end
 
     ENV["TwoPiGit"]="https://github.com/piScope"
     system "mkdir -p #{prefix}/lib/python3.9/site-packages"
@@ -76,7 +76,7 @@ class Twopi < Formula
     end
 
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
-    #system "bin/twopi install PyMFEM"
+    # system "bin/twopi install PyMFEM"
 
     if delete_link > 0
       system "rm #{prefix}/bin/python"
