@@ -1,8 +1,8 @@
 class Twopi < Formula
-  #include Language::Python::Virtualenv
+  # include Language::Python::Virtualenv
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
-  
+
   url "https://github.com/piScope/TwoPi/archive/v1.0.28.tar.gz"
   sha256 "2f88f731b44feec524e19f99317def9a35d01e468d71f871104adae6b1ec9e59"
 
@@ -17,17 +17,17 @@ class Twopi < Formula
   depends_on "libomp"
   depends_on "llvm"
   depends_on "numpy"
-  depends_on "opencascade"
   depends_on "netcdf"
   depends_on "hdf5"
-  depends_on "scipy"
+  depends_on "opencascade"
   depends_on "mpi4py"
   depends_on "open-mpi"
   depends_on "scalapack"
   depends_on "python@3.9"
-  depends_on "wxpython"
+  depends_on "scipy"
   depends_on "wget"
-  depends_on "zlib" 
+  depends_on "wxpython"
+  depends_on "zlib"
 
   def install
     ENV.deparallelize  # if your formula fails when building in parallel
