@@ -15,10 +15,10 @@ class Twopi < Formula
   depends_on "coreutils"
   depends_on "gmsh"
   depends_on "libomp"
-  depends_on "llvm"
   depends_on "hdf5"
-  depends_on "netcdf"
+  depends_on "llvm"
   depends_on "mpi4py"
+  depends_on "netcdf"
   depends_on "numpy"
   depends_on "open-mpi"
   depends_on "opencascade"
@@ -52,10 +52,10 @@ class Twopi < Formula
     # for name in pip_dependencies do 
     #   resource(name).stage { system "#{HOMEBREW_PREFIX}/opt/python@3/bin/python3", *Language::Python.setup_install_args("#{prefix}") }
     #end
-    
+
     ENV["TwoPiGit"]="https://github.com/piScope"
-    system "mkdir -p #{prefix}/lib/python3.9/site-packages"      
-    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.9/site-packages"      
+    system "mkdir -p #{prefix}/lib/python3.9/site-packages"
+    ENV.prepend_path "PYTHONPATH", "#{prefix}/lib/python3.9/site-packages"
 
     system "make install PREFIX=#{prefix}"
     system "mkdir -p #{prefix}/bin"
@@ -64,7 +64,7 @@ class Twopi < Formula
 
     # install dependency
     # system "pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 PyPDF2 pdfrw future"
-    
+
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
 
@@ -81,7 +81,7 @@ class Twopi < Formula
     if delete_link > 0
         system "rm #{prefix}/bin/python"
     end
-    
+
     # for testing one by one.. do like this
     #system "bin/twopi install MUMPS"
   end
