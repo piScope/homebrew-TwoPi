@@ -21,7 +21,7 @@ jobs:
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: |
           echo $GITHUB_REPOSITORY $PULL_REQUEST
-          brew pr-pull -v -d --workflow=bottletest_twopi.yml --tap=$GITHUB_REPOSITORY $PULL_REQUEST
+          brew pr-pull -v -d --workflow=buildtest_twopi.yml --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
