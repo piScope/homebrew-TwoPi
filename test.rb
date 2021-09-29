@@ -8,7 +8,7 @@ class Test < Formula
   depends_on "python@3.9"
   
   def install
-    system "python3" "setup.py" "install"
+    system("python3 setup.py install")
   end
 
   def caveats; <<~EOS
