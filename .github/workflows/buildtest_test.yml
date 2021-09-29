@@ -34,13 +34,16 @@ jobs:
 
       - name: Build a bottle using Homebrew
         run: |
-            echo ${{ github.event.pull_request.repository }}
+            echo ${{ github.event.pull_request.repo.owner.login }}
+            echo ${{ github.event.pull_request.repo.name }}
             brew tap piScope/twopi
             brew install -v piscope/twopi/test --build-bottle
-            #brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/TwoPi/releases/download/Test-0.3.0
-            #brew bottle --merge --write --no-commit ./gothanks--0.3.0.x86_64_linux.bottle.json
-            #brew bottle piscope/twopi/test
+            brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/TwoPi/releases/download/Test-0.3.0
             ls -l
+            ls *.bottle.json
+            brew bottle --merge --write --no-commit ./$(ls *.bottle.json)
+            #brew bottle piscope/twopi/test
+
 
       - name: Extact Version String
         run: |
