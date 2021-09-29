@@ -19,12 +19,27 @@ jobs:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-    
+
+      - name: Cache Homebrew Bundler RubyGems
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - name: Install Homebrew Bundler RubyGems
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: brew install-bundler-gems
+
       - name: Build a bottle using Homebrew
         run: |
+    	    echo ${{ github.event.pull_request.repository }}
             brew tap piScope/twopi
             brew install -v piscope/twopi/test --build-bottle
-            brew bottle piscope/twopi/test
+            #brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/TwoPi/releases/download/Test-0.3.0
+            #brew bottle --merge --write --no-commit ./gothanks--0.3.0.x86_64_linux.bottle.json
+            #brew bottle piscope/twopi/test
             ls -l
 
       - name: Extact Version String
