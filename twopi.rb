@@ -14,8 +14,8 @@ class Twopi < Formula
   depends_on "cmake"
   depends_on "coreutils"
   depends_on "gmsh"
-  depends_on "libomp"
   depends_on "hdf5"
+  depends_on "libomp"
   depends_on "llvm"
   depends_on "mpi4py"
   depends_on "netcdf"
@@ -42,14 +42,14 @@ class Twopi < Formula
     ENV["TwoPiRoot"]="#{prefix}"
     ENV["TwoPiDevice"]="brew"
 
-    if OS.mac? && MacOS.version  >= :catalina    
+    if OS.mac? && MacOS.version  >= :catalina
        ENV["C_INCLUDE_PATH"]="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
     end
 
     system "echo prefix is #{prefix}"
 
     # pip_dependencies = ["matplotlib", "Pillow", "hgapi", "PyOpenGL", "netCDF4", "h5py", "PyPDF2", "pdfrw", "future"]
-    # for name in pip_dependencies do 
+    # for name in pip_dependencies do
     #   resource(name).stage { system "#{HOMEBREW_PREFIX}/opt/python@3/bin/python3", *Language::Python.setup_install_args("#{prefix}") }
     #end
 
@@ -68,29 +68,29 @@ class Twopi < Formula
     ENV.prepend_path "PATH", "#{prefix}/bin"
     ENV["PYTHON"]="#{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3"
 
-    if (File.file?("#{prefix}/bin/python"))
-        delete_link = 0
+    if File.file?("#{prefix}/bin/python")
+      delete_link = 0
     else
-        delete_link = 1
-        system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
+      delete_link = 1
+      system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
     end
 
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     #system "bin/twopi install PyMFEM"
 
     if delete_link > 0
-        system "rm #{prefix}/bin/python"
+      system "rm #{prefix}/bin/python"
     end
 
     # for testing one by one.. do like this
-    #system "bin/twopi install MUMPS"
+    # system "bin/twopi install MUMPS"
   end
 
   def caveats; <<~EOS
     To use Petra-M, use activartion command to setup envrioment
       > activate_twopi
     Then, you can start piScope
-      TwoPi_xxx> piscope 
+      TwoPi_xxx> piscope
     You can use twop command to update PetraM modules
       TwoPi_xxx> twopi update <module name>             # to check if update exists
       TwoPi_xxx> twopi update --install <module name>   # to check if update exists
