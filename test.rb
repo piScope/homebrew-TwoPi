@@ -7,8 +7,8 @@ class Test < Formula
 
   depends_on "python@3.9"
   
-  def install
-    system("python3 setup.py install")
+  def instal
+    system Formula["python@3.x"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   def caveats; <<~EOS
