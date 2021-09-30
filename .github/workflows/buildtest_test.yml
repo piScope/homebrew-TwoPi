@@ -44,7 +44,7 @@ jobs:
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
         run: echo "$STEPS_CONTEXT"
-	
+
       - name: Build a bottle using Homebrew
         run: |
             echo ${{ github.event.pull_request.repo.owner.login }}
