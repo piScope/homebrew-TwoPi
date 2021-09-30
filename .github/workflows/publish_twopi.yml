@@ -1,11 +1,11 @@
-name: brew pr-pull
+name: brew pr-pull-twopi
 on:
   pull_request_target:
     types:
       - labeled
 jobs:
   pr-pull:
-    if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
+    if: contains(github.event.pull_request.labels.*.name, 'pr-pull-twopi')
     runs-on: ubuntu-latest
     steps:
       - name: Set up Homebrew
@@ -26,8 +26,8 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          token: ${{ github.token }}
-          branch: next
+          token: ${{ secrets.BREWRELEASETOKEN }}	
+          branch: master
 
       - name: Delete branch
         if: github.event.pull_request.head.repo.fork == false
