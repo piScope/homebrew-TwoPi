@@ -2,8 +2,8 @@ class Test < Formula
   desc "A module to test workflow"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"  
 
-  url "https://github.com/piScope/Test/archive/refs/tags/v0.0.4.tar.gz"
-  sha256 "d11d18af3ccda823edf3ae4a5725a52301cdd29db984f22220e9a693ba734ec6"  
+  url "https://github.com/piScope/Test/archive/refs/tags/v0.0.9.tar.gz"
+  sha256 "5ec06353b0860e2aaea38400336229564b31f99d6f6a8f262cf6ebcdfb43e69a"  
 
   depends_on "python@3.9"
   
