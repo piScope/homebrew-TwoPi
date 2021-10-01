@@ -5,9 +5,13 @@
    brew bottle piScope/twopi/twopi
 
    After a relase is made
-   #  call brew bump-formula-pr
-   
-   $ brew  bump-formula-pr -f -d -v --no-fork  --no-browse --no-audit --url https://github.com/piScope/Test/archive/refs/tags/v0.0.42.tar.gz  piscope/twopi/test
+   #  call brew bump-formula-pr and copy URL
+
+   #  run the following command locally.
+   $ brew  bump-formula-pr -f -d -v --no-fork  --no-browse --no-audit --url <URL>  piscope/twopi/<FORMULA>
+
+   # PR is created and Action will run to make a bottle in GitHub.
+   # Once it is done. Put a label to pr-pull-twopi
 
    
    Then update formula

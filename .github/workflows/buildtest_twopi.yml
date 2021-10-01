@@ -33,7 +33,7 @@ jobs:
             echo ${NEW_VERSION}	
             brew tap piScope/twopi
             brew install -v piscope/twopi/twopi --build-bottle
-            brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-${NEW_VERSION}
+            brew bottle --verbose --json piscope/twopi/twopi --root-url=https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-${NEW_VERSION}
             ls *.bottle.json
             brew bottle --merge --write --no-commit ./$(ls *.bottle.json)
             ls -l
