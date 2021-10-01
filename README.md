@@ -29,12 +29,3 @@ update piScope and PetraM modules
       TwoPi_xxx> twopi update --install <module name>   # to check if update exists
     if <module name> is not specified. It will check all modules
 ```
-
-#### memo for bottling (This section needs update)
-NOte: We are currently not generating bottle. All installaion is done by downloading and compiling source. 
-```
-   brew install -v --env=std piScope/twopi/twopi --build-bottle
-   brew bottle piScope/twopi/twopi
-   
-   Then update formula
-```

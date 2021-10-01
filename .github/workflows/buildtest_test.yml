@@ -48,11 +48,11 @@ jobs:
       - name: Build a bottle using Homebrew
         run: |
             echo ${{ github.head_ref }}
-            echo "NEW_VERSION=$(echo ${{ github.head_ref }} | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
-            echo ${{ env.NEW_VERSION }}
+            NEW_VERSION=$(echo ${{ github.head_ref }} | sed 's/[^0-9.]*//g')"
+            echo ${NEW_VERSION}
             brew tap piScope/twopi
             brew install -v piscope/twopi/test --build-bottle
-            brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/homebrew-TwoPi/releases/download/Test-${{ env.NEW_VERSION }}
+            brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/homebrew-TwoPi/releases/download/Test-${NEW_VERSION}
             ls -l
             ls *.bottle.json
             brew bottle --merge --write --no-commit ./$(ls *.bottle.json)
