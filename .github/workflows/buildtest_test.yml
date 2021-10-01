@@ -48,7 +48,7 @@ jobs:
       - name: Build a bottle using Homebrew
         run: |
             echo ${{ github.head_ref }}
-            NEW_VERSION=$(echo ${{ github.head_ref }} | sed 's/[^0-9.]*//g')"
+            NEW_VERSION=$(echo ${{ github.head_ref }} | sed 's/[^0-9.]*//g')
             echo ${NEW_VERSION}
             brew tap piScope/twopi
             brew install -v piscope/twopi/test --build-bottle

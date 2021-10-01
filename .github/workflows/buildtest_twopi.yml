@@ -28,14 +28,15 @@ jobs:
              $(brew --prefix)/opt/Python@3/bin/pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 h5py PyPDF2 pdfrw future
       - name: Build a bottle using Homebrew
         run: |
+            echo ${{ github.head_ref }}
+            NEW_VERSION=$(echo ${{ github.head_ref }} | sed 's/[^0-9.]*//g')
+            echo ${NEW_VERSION}	
             brew tap piScope/twopi
             brew install -v piscope/twopi/twopi --build-bottle
-            brew bottle piscope/twopi/twopi
+            brew bottle --verbose --json piscope/twopi/test --root-url=https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-${NEW_VERSION}
+            ls *.bottle.json
+            brew bottle --merge --write --no-commit ./$(ls *.bottle.json)
             ls -l
-
-      - name: Extact Version String
-        run: |
-          echo "TAG_VERSION=$(echo ${{github.event.release.tag_name}} | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
