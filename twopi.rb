@@ -3,13 +3,13 @@ class Twopi < Formula
   desc "Package installer to setup Petra-M"
   homepage "http://piscope.psfc.mit.edu/index.php/Petra-M_(FEM_environment_on_MFEM)"
 
-  url "https://github.com/piScope/TwoPi/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "56514b97b87c7e347745bf90f99bae3c0831fa9873662d020603449235d4c9ad"
+  url "https://github.com/piScope/TwoPi/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "08c4e9e98382d21bf8d27ca46c2d0ff568a4a3cefc3435cfa31fd569bca211e7"
 
   bottle do
-    root_url "https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-1.1.0"
-    sha256 big_sur:  "28f253b7d43bfb0ad989bb740e33698616f3690e205b5f2d8d4ca35cce54d8ff"
-    sha256 catalina: "845b6f64ee94b2286ca9f2bec827d500563803eb7940e5a334c831539ea87bf3"
+    root_url "https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-1.1.2"
+    sha256 big_sur:  "20a4ddbbabcbd1827a987459edc2b19dfcfbf9cab53e9d99dcf88a6b82e5afec"
+    sha256 catalina: "e726235f4f8a5108a21eaa45260aa089abef5e7005811ea7b0521a5b2f6e1d2d"
   end
 
   depends_on "cmake"
