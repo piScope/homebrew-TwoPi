@@ -11,6 +11,11 @@ This formula installs followig libraris.
    * PetraM (Base, RF, Geom, MUMPS)
 
 ### Install instruction (from fresh install of HomeBrew)
+  > brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython mpi4py mercurial
+  > $(brew --prefix)/opt/Python@3.9/bin/pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 h5py PyPDF2 pdfrw future
+  > brew tap piScope/twopi
+  > brew install -v piscope/twopi/twopi 
+
   https://piscope.psfc.mit.edu/index.php/Installing_Petra-M
   
 

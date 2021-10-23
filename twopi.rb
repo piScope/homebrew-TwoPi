@@ -13,6 +13,7 @@ class Twopi < Formula
   end
 
   depends_on "cmake"
+  depends_on "rapidjson"
   depends_on "coreutils"
   depends_on "gmsh"
   depends_on "hdf5"
