@@ -77,7 +77,8 @@ class Twopi < Formula
       system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
     end
 
-    system "ln -s /usr/local/include/rapidjsonn ${PWD}/twopi_root/include/rapidjson"
+    system "mkdir -p #{prefix}/include"
+    system "ln -s /usr/local/include/rapidjsonn #{prefix}/include/rapidjson"
     system 'export CXXFLAGS="-I /usr/local/include"'
     system "/bin/twopi clone PyOCC --75"
     system "/bin/twopi build PyOCC"
