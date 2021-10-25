@@ -80,8 +80,8 @@ class Twopi < Formula
     system "mkdir -p #{prefix}/include"
     system "ln -s /usr/local/include/rapidjsonn #{prefix}/include/rapidjson"
     system 'export CXXFLAGS="-I /usr/local/include"'
-    system "/bin/twopi clone PyOCC --75"
-    system "/bin/twopi build PyOCC"
+    system "bin/twopi clone PyOCC --75"
+    system "bin/twopi build PyOCC"
 
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     # system "bin/twopi install PyMFEM"
