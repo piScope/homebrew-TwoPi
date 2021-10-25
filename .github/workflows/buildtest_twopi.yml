@@ -22,7 +22,7 @@ jobs:
     
       - name: Install-dependencies1
         run: |
-            brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython mpi4py mercurial
+            brew install cmake open-mpi scalapack wget zlib netcdf hdf5 numpy scipy coreutils llvm libomp gmsh wxPython mpi4py mercurial rapidjson
       - name: Install-dependencies2
         run: |
              $(brew --prefix)/opt/Python@3/bin/pip3 install six matplotlib Pillow hgapi PyOpenGL netCDF4 h5py PyPDF2 pdfrw future
