@@ -77,6 +77,11 @@ class Twopi < Formula
       system "ln -s #{HOMEBREW_PREFIX}/opt/python@3.9/bin/python3 #{prefix}/bin/python"
     end
 
+    system "ln -s /usr/local/include/rapidjsonn ${PWD}/twopi_root/include/rapidjson"
+    system 'export CXXFLAGS="-I /usr/local/include"'
+    system "/bin/twopi clone PyOCC --75"
+    system "/bin/twopi build PyOCC"
+
     system "bin/twopi install modules --no-occ-gmsh --no-python_mod --log-dir #{prefix}/log"
     # system "bin/twopi install PyMFEM"
 
