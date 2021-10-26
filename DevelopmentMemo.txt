@@ -1,17 +1,19 @@
 
 #### Memo for myself... Step to release a new version
-```
-   brew install -v --env=std piScope/twopi/twopi --build-bottle
-   brew bottle piScope/twopi/twopi
 
-   After a relase is made
+   #
+   #  Update TwoPi
+
+   1) push changes to test branch
+   2) once it passes the test, merge it to master
+   3) make a pre-release 
+   
    #  call brew bump-formula-pr and copy URL
-
    #  run the following command locally.
-   $ brew  bump-formula-pr -f -d -v --no-fork  --no-browse --no-audit --url <URL>  piscope/twopi/<FORMULA>
+   4) $ brew  bump-formula-pr -f -d -v --no-fork  --no-browse --no-audit --url <URL>  piscope/twopi/<FORMULA>
 
-   # PR is created and Action will run to make a bottle in GitHub.
-   # Once it is done. Put a label to pr-pull-twopi
+   # This will create PR and Action will run to make a bottle in GitHub.
+   5)  Trigger an action for publishing the reelase. This is done by assigning pr-pull-twopi label to the PR.
 
    
    Then update formula
