@@ -7,9 +7,9 @@ class Twopi < Formula
   sha256 "70a11242c2bf1ae8321bcc3d265c8381856ec2bf8c5f413ccdcb7b311539fb58"
 
   bottle do
-    root_url "https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-1.1.2"
-    sha256 big_sur:  "20a4ddbbabcbd1827a987459edc2b19dfcfbf9cab53e9d99dcf88a6b82e5afec"
-    sha256 catalina: "e726235f4f8a5108a21eaa45260aa089abef5e7005811ea7b0521a5b2f6e1d2d"
+    root_url "https://github.com/piScope/homebrew-TwoPi/releases/download/TwoPi-1.1.6"
+    sha256 big_sur:  "baeb22a8f3766d5530bb962081f8093a1623b878725dce0ecdd53a73b20057dc"
+    sha256 catalina: "cf754ebe9bac472899ae71459e18d6e27694780ee92b56862f19e44cc7aaefe1"
   end
 
   depends_on "cmake"
