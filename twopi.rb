@@ -92,6 +92,11 @@ class Twopi < Formula
 
     # for testing one by one.. do like this
     # system "bin/twopi install MUMPS"
+    system "rm -rf #{prefix}/src/MUMPS*"
+    system "rm -rf #{prefix}/src/hypre*"
+    system "rm -rf #{prefix}/src/metis*"
+    system "rm -rf #{prefix}/src/pythonocc*"
+    system "rm -rf #{prefix}/src/parmetis*"
   end
 
   def caveats; <<~EOS
